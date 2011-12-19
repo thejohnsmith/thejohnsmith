@@ -1,0 +1,87 @@
+<!doctype HTML>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>WTF?</title>
+<link href='styles/main.css?v=2' rel='stylesheet'>
+<link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+<section id="wrapper">
+<header id="giddyup">
+	<section>
+	<h1>WTF?</h1>
+    <small>When you need the answer right the fuck now.</small>
+    </section>
+</header> <!-- / #giddyup -->
+
+<section id="container">
+	<section id="me" class="group">
+    	<header><h1>Ask Your Question</h1></header>
+        <section class="me-form group">
+    		<textarea placeholder="Don't be shy, ask away!" name="me-ask" id="me-ask"></textarea>
+    		<input type="text" name="me-ask-tags" id="me-ask-tags" placeholder="Tags, comma-separated"/>
+            <span class="helper">*Type a tag and press <span class="smlBtn">,</span> or <span class="smlBtn">Enter</span></span>
+        </section>
+        <section id="me-submitted">
+        	<div class="question">
+            	<p>Once a question is submitted it would replace the form right here... know what I mean?</p>
+            </div>
+        	<div class="stats-views">
+            	viewed by <span class="stats-num"><strong>0</strong></span> humans.
+            </div>
+            <hr>
+            <div id="loveme">
+            	<div>[name] suggests:</div>
+            	Urna hac, scelerisque, non cum magna pellentesque sed tincidunt? Nunc tortor cursus! Placerat rhoncus habitasse! Sagittis! Placerat augue diam, magna nec rhoncus? Risus odio! Pulvinar vel, nascetur ac mus. Lectus enim pid magna, vel, pulvinar elementum, scelerisque dignissim augue proin pulvinar? Adipiscing, porttitor lorem enim, mus tincidunt, porttitor tincidunt.
+            </div>
+        </section>
+        <footer>
+        	<button name="askbtn" id="askbtn">Ask</button>
+        </footer>
+    </section> <!-- / #me -->
+	
+    <section id="them" class="group">
+    	<header><h1>Answer Theirs</h1></header>
+        <div id="feedback"></div>
+    	<div class="question">
+        	<p>What's up, Google?</p>
+        </div>
+        <div class="answer">
+        	<textarea placeholder="I know this..." name="me-answer" id="me-answer"></textarea>
+            <footer>
+            	<button id="answbtn" name="answbtn">Answer</button>
+            	<div id="passer" class="passer">or pass</div>
+            </footer>
+        </div>
+    
+    </section> <!-- / #them -->
+</section> <!-- / #container -->
+
+</section> <!-- / #wrapper -->
+  <footer id="dsw">
+  	Brought to you by <strong>Team FTW</strong> 2011 
+  </footer>
+<script type="text/javascript" src="jquery-1.6.2.js"></script>
+<script src="jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="jquery.json-2.2.js"></script>
+<script type="text/javascript" src="jquery.websocket-0.0.1.js"></script>
+<script type="text/javascript" src="messaging.js"></script>
+
+<script type="text/javascript" src="QA.js"></script>
+
+<script>
+   var _gaq = [['_setAccount', 'UA-15583110-1'], ['_trackPageview']];
+   (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+   } )(document, 'script');
+</script>
+
+</body>
+</html>

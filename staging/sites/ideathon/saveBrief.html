@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Save Brief Test</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" >
+$(function() {
+$("#submitBrief").click(function() {
+  $('.success').fadeIn(200).hide();
+  $('.error').fadeOut(200).hide();
+  var personName = $("#personName").val();
+  var clientName = $("#clientName").val();
+  var assignmentName = $("#assignmentName").val();
+  var emailInput = $("#emailInput").val();
+  var briefText = $("#briefText").val();
+  var dataString = 'personName='+ personName + '&clientName=' + clientName + '&assignmentName=' + assignmentName + '&emailInput=' + emailInput + '&briefText=' + briefText;
+  
+  var ck_personName = /^[A-Za-z0-9_!:,;.@#$%'"]{1,50}$/;
+  var ck_clientName = /^[A-Za-z0-9_!:,;.@#$%'"]{1,50}$/;
+  var ck_assignmentName = /^[A-Za-z0-9_!:,;.@#$%'"]{1,50}$/;
+  var ck_emailInput = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+  var ck_briefText = /^[A-Za-z0-9_!:,;.@#$%'"]{1,350}$/;
+  
+  var errors = [];
+  
+  if (!ck_personName.test(personName)) {
+	errors[errors.length] = "Please enter your name.";
+  }
+  if (!ck_clientName.test(clientName)) {
+	errors[errors.length] = "Please enter the client's name.";
+  }
+  if (!ck_assignmentName.test(assignmentName)) {
+	errors[errors.length] = "Please enter the assignment title.";
+  }
+  if (!ck_emailInput.test(emailInput)) {
+	errors[errors.length] = "Please enter a valid email address.";
+  }
+  if (!ck_briefText.test(briefText)) {
+	errors[errors.length] = "Please enter the brief.";
+  }
+	
+	
+  
+  
+  if(personName == '' || clientName == '' || assignmentName == '' || emailInput == '' || briefText == '')
+  {
+	$('.success').fadeOut(200).hide();
+	$('.error').fadeOut(200).show();
+  }
+  else
+  {
+	$.ajax({
+	type: "GET",
+	url: "SaveBrief.aspx",
+	data: dataString,
+	success: function(){
+		$('.success').fadeIn(200).show();
+		$('.error').fadeOut(200).hide();
+	  }
+	});
+  }
+  return false;
+});
+});
+
+
+
+//http://ideathon.modernclimate.com/SaveBrief.aspx?personName=Bob%20Smith&clientName=Nike&assignmentName=New%20Logo&emailInput=jtoth@modernclimate.com&briefText=samplebrieftext
+
+</script>
+</head>
+
+<body>
+<form method="get" name="form" action="#">
+  <ul>
+    <li>
+      Person Name: <input id="personName" name="personName" type="text" />
+    </li>
+    <li>
+      Client Name: <input id="clientName" name="clientName" type="text" />
+    </li>
+    <li>
+      Assignment Name: <input id="assignmentName" name="assignmentName" type="text" />
+    </li>
+    <li>
+      Email Address: <input id="emailInput" name="emailInput" type="text" />
+    </li>
+    <li>
+      Brief Text: <input id="briefText" name="briefText" type="text" />
+    </li>
+  </ul>
+  <div>
+  <p>
+    <input type="submit" value="Submit" name="submit" id="submitBrief"/>
+    <span class="error" style="display:none">Please Enter All Information</span> <span class="success" style="display:none">Brief Sent, Thanks!</span>
+    </p>
+    </div>
+</form>
+</body>
+</html>

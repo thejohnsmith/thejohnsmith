@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>Floatbox v3.53 Instructions</title>
+<style type="text/css">
+body { background: #fafafa; }
+#content { margin: 1em 25px; font-family: Arial, Helvetica, sans-serif; font-size: .95em; }
+#content h3 { font-size: 1.2em; margin: 2em auto -1em auto; color: #046; }
+#content h5 { font-size: 1.1em; margin: 1.8em auto -.6em 3em; color: #046; }
+#content .code, #content .blockcode { font-family: monospace; font-size: 1.05em; color: #603; background-color: #eaeaea}
+#content .blockcode { display: block; }
+#content li { margin-top: .3em; }
+#content ul, #content ol { margin-top: .7em; }
+</style>
+</head>
+<body>
+<div id="content">
+<h3 id="index">Floatbox v3.53 - Instructions</h3>
+<p><a href="http://randomous.com/floatbox">randomous.com</a></p>
+<hr />
+
+<h5>Index</h5>
+<ul>
+<li><a href="#quickstart">Basic quick-start</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#licensekey">License key</a></li>
+<li><a href="#upgrade">Upgrading</a></li>
+<li><a href="#doctype">Doc Types</a></li>
+<li><a href="#options">Configuring options</a></li>
+<li><a href="#anchoroptions">Setting options directly on anchors</a></li>
+<li><a href="#pageoptions">Setting page-specific options</a></li>
+<li><a href="#qrystring">Querystring options</a></li>
+<li><a href="#autoslide">Example: Start a slideshow from a link</a></li>
+<li><a href="#captions">Captions</a></li>
+<li><a href="#autogallery">Auto Gallery creation</a></li>
+<li><a href="#type">File &amp; content types</a></li>
+<li><a href="#html">HTML content: iFrames, AJAX &amp; inline DIVs</a></li>
+<li><a href="#multimedia">Multimedia: Flash, Silverlight, QuickTime, YouTube, etc.</a></li>
+<li><a href="#altcontent">Alternate content for javascript-disabled browsers</a></li>
+<li><a href="#popup">Popup thumbnails</a></li>
+<li><a href="#info">Info box for secondary content</a></li>
+<li><a href="#print">Print contents</a></li>
+<li><a href="#indexlinks">Index links in a gallery</a></li>
+<li><a href="#language">Language localization</a></li>
+<li><a href="#auto">Auto-start and exit tasks</a></li>
+<li><a href="#imagemap">Image map areas</a></li>
+<li><a href="#navigation">Navigation and Controls</a></li>
+<li><a href="#appearance">Appearance</a></li>
+<li><a href="#background">Custom background image</a></li>
+<li><a href="#childoptions">Options for child windows</a></li>
+<li><a href="#iniframes">Running in iFramed pages</a></li>
+<li><a href="#framebox">Constraining floatbox to a particular iFrame</a></li>
+<li><a href="#cycler">Cycling images and thumbnails</a></li>
+<li><a href="#ajax">Dynamically loading floatbox content via AJAX or UpdatePanel</a></li>
+<li><a href="#gzip">Serving gzip compressed files on Apache</a></li>
+<li><a href="#actionscript">Launching floatbox from flash ActionScript</a></li>
+</ul>
+
+<hr id="quickstart" />
+<h4>Basic quick-start</h4>
+<p>
+The three steps below are all you need to get floatbox content on your pages.
+But to get the most out of floatbox and use its more advanced features you really should read the rest of these instructions,
+the <a href="options.html">options reference</a>, the programmer's <a href="api.html">API</a> and also check out the <a href="http://randomous.com/floatox/demo">demo pages</a>.
+</p>
+<ol>
+<li>
+Inside the zip file is a folder named floatbox that contains all the floatbox files.
+Extract that floatbox folder and all its contents to the desired location on your server, keeping the folder hierarchy from the zip file intact.
+If you're uncertain where to unzip the floatbox folder to, just put it in your site's root folder.
+</li>
+<li>
+Put the following two lines in the &lt;head&gt; section of the pages you want floatbox to be active on.<br />
+If you unzipped to your root folder, the lines would be:<br />
+<span class="code">&lt;link type="text/css" rel="stylesheet" href="/floatbox/floatbox.css" /&gt;</span><br />
+<span class="code">&lt;script type="text/javascript" src="/floatbox/floatbox.js"&gt;&lt;/script&gt;</span><br />
+If you placed the floatbox folder in, let's say, your "includes" folder, your two head section lines would read:<br />
+<span class="code">&lt;link type="text/css" rel="stylesheet" href="/includes/floatbox/floatbox.css" /&gt;</span><br />
+<span class="code">&lt;script type="text/javascript" src="/includes/floatbox/floatbox.js"&gt;&lt;/script&gt;</span>
+</li>
+<li>
+Add a class name of <span class="code">class="floatbox"</span> to the &lt;a&gt; elements you want to show in floatbox.
+(An anchor can have multiple classes separated by spaces, such as <span class="code">class="myclass floatbox"</span>).
+Optionally add a rev attribute with desired floatbox options to your anchors.
+For example, you can group items into gallery sets by giving those items a rev option like this: <span class="code">rev="group:myGallery"</span>.
+</li>
+<li>
+There is no step 4. You're done. But keep reading to understand how to do more than just the basics with floatbox.
+</li>
+</ol>
+<p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="installation" />
+<h4>Installation</h4>
+<p>
+There are many supporting files included in the floatbox download.  They are nearly all needed for correct functioning.
+Floatbox is modular.  It loads its modules and css files on demand as required, but it needs to find these modules and css files in order to do so.
+It is highly recommended that you keep the floatbox folder intact and not try to separate the components out to different folder locations.
+If you keep the install folder intact, floatbox will auto-detect its modules, graphics and css locations.
+If you break up the install into different locations (not recommended),
+you will need to set the installBase, jsModules, cssModules, languages, and graphics paths in the preferences section of floatbox.js,
+and you will also need to update the css files with the correct relative paths to the background images.
+</p><p>
+An important part of the download package is the "docs" folder where you will find the instructions (this page),
+the <a href="options.html">options</a> reference,
+the programmer's <a href="api.html">API</a> reference,
+and the floatbox <a href="license.html">license</a> agreement.
+It is time well spent to familiarize yourself with these items before integrating floatbox on your site.
+</p><p>
+If you are developing your site on a local file system rather than serving it from a web server, you will need to use relative paths for the two floatbox include lines.
+This can be a pain, because the relative paths will be different depending on what level you are at in you folder heirarchy.
+If the page you are configuring is in the same folder that contains your floatbox install folder,
+remove the first backslashes from the two &lt;head&gt; section includes lines. Like this:<br />
+<span class="code">&lt;link type="text/css" rel="stylesheet" href="floatbox/floatbox.css" /&gt;</span><br />
+<span class="code">&lt;script type="text/javascript" src="floatbox/floatbox.js"&gt;&lt;/script&gt;</span><br />
+For each level in your folder hierarchy you go down into, you will need to add a relative parent reference to your include lines.
+For example, if you were one folder level down from the floatbox install folder, your include lines would be:<br />
+<span class="code">&lt;link type="text/css" rel="stylesheet" href="../floatbox/floatbox.css" /&gt;</span><br />
+<span class="code">&lt;script type="text/javascript" src="../floatbox/floatbox.js"&gt;&lt;/script&gt;</span><br />
+(It's easier to develop on a real web server and just use the same absolute paths everywhere.)
+</p>
+<p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="licensekey" />
+<h4>License key</h4>
+<p>
+The downloaded floatbox package is for evaluation, development and testing and does not have a license key bundled with it.
+Without a valid license key, floatbox will periodically show a registration reminder.
+You can acquire a license key from the floatbox <a href="/floatbox/register">registration</a> page.
+When you have acquired and installed a license key you will be legally entitled to deploy the floatbox software to your production site and the registration reminders will not occur.
+You do not need a license key for development or evalution work.
+The floatbox package is complete and fully functional without a license key.
+</p><p>
+Install your license key by locating the licenseKey.js file in your floatbox install folder.
+Open that file in any text editor, and paste your license key in between the quotes.
+It looks like this:</br>
+<span class="code">fb.licenseKey = "Your Key Goes Here";</span>
+</p><p>
+As of version 3.53.0, you can also set your license key directly in the options section at the top of floatbox.js and framebox.js,
+or you can set it directly on your page with the "fbPageOptions" script object (see "<a href=#pageoptions>Setting page-specific options</a>" below).
+Also with version 3.53, you can test your license key by loading a floatbox-enabled page and then running the following from your browser's address bar:
+<span class="code">javascript:fb.key()</span>
+</p><p>
+License keys are matched to the production domain they are deployed to.
+If you are a publisher of multiple web sites and you have registered those sites for licensed floatbox usage,
+you have the option of generating a multi-site "master" key for all your registered domains.
+This is a single license key that will be valid on each of your registered domains.
+Using such a multi-site license key can simplify deployment by allowing you to use a single distribution source and not have to match individual keys to individual deployments.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="upgrade"/>
+<h4>Upgrading</h4>
+<p>
+Upgrading to a new version of floatbox entails replacing the entire contents of your existing floatbox folder.
+The javascript modules, css files, graphics and languages can all change between versions and all the components need to be in sync.
+When you upgrade to a new version, you will need to edit the options section at the top of floatbox.js to set your default preferences if you want your defaults to be different than as shipped.
+If you have a license key installed in your previous version, make sure you install your license key to the new version as described above
+(or just copy your old licenseKey.js file into the new install).
+</p><p>
+If you are upgrading floatbox from a version prior to v3.50, you will notice a few changes in floatbox's operation and configuration.
+Previous versions used the rel attribute to activate anchors and to define behaviours such as slideshows and gallery groupings.
+The newer versions of floatbox prefer using the class attribute (<span class="code">class="floatbox"</span>) to mark anchors for activation,
+and use rev options such as <span class="code">doSlideshow</span> and <span class="code">group</span> for setting behaviours.
+Also, some configuration options have had name changes.
+Floatbox is fully backward-compatable with the previous version's way of doing things and all the old style markup, functions and options will continue to work without modification.
+</p><p>
+If you are moving from lytebox to floatbox, you do not need to change the markup of your anchors if you don't want to.
+Floatbox will recognize your existing lytebox rel attributes.
+However, you will probably want to change your markup to take advantage of the many capabilities and configuration options that can be set.<br />
+The following rel attributes and the traditional extensions of them with group names where applicable, are recognized:<br />
+floatbox, gallery, slideshow, iframe, lytebox, lightbox, lyteshow and lyteframe.<br />
+For compatability with pre-existing lytebox pages, the css-like syntax for the rev options is recognized:<br />
+<span class="code">&lt;a href="mypage.html" rel="lyteframe" rev="width: 400px; height: 530px; scrolling: no;"&gt;...&lt;/a&gt;</span>
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="doctype" />
+<h4>Doc Types</h4>
+<p>
+Floatbox does not support <a href="http://en.wikipedia.org/wiki/Quirks_mode">quirks mode</a>.
+All pages that include floatbox content need to have a valid doctype declaration at the top of the page which will set the browser to render in standards-compliant mode.
+Note that for IE6, if anything at all appears above the doctype declaration, quirks mode will be set.
+So please don't put an xml declaration such as <span class="code">&lt;xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span> at the top of your XHMTL 1.0 pages.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="options" />
+<h4>Configuring options</h4>
+<p>
+Don't overlook reading the <a href="options.html">options</a> reference.
+You'll get the best understanding of floatbox options from there.<br />
+There are 4 different ways to set configuration options for floatbox.
+In order of precedence, options can be set from:
+</p>
+<ol>
+<li>the querystring of the host page url (good for testing)</li>
+<li>the clicked link's rev attribute</li>
+<li>fbPageOptions &amp; fbChildOptions code objects defined on the host page</li>
+<li>the defaultOptions object at the top of floatbox.js</li>
+</ol>
+<p>
+Your first stop in configuring floatbox will probably be to edit the options section at the top of floatbox.js to set the default global options the way you like them.
+Details of the other various option-setting methods follow.
+(Note that option names and values are case-sensitive.)
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="anchoroptions" />
+<h4>Setting options directly on anchors</h4>
+<p>
+Probably the most useful of floatboxes options setting techniques is the ability to configure the behaviour of specific anchors.
+When running a series of floatboxed items such as a gallery set or a slideshow,
+the majority of the options from the clicked anchor will apply globally to all items in the set.
+Some other options apply on a per item basis. It should usually be apparent from context which options are per item.
+For example, <span class="code">width</span> is per item whereas <span class="code">cornerRadius</span> applies to the whole set.<br />
+Syntax is: <span class="code">&lt;a href="xyz" class="floatbox" <b>rev="option1:value1 option2:value2 etc."</b>&gt;</span>.<br />
+There's lots of examples of options set in rev tag markup on the <a href="http://randomous.com/floatbox/demo">demo</a> page and there's a detailed example below where starting a slideshow is discussed.
+</p><p>
+The proposed HTML5 standard deprecates the anchor's "rev" attribute.
+To get a jump on HTML5 compliance, floatbox allows you to place the option information on a "data-fb-options" attribute in place of the rev attribute.
+(data-* attributes are "legal" under the current proposal and are intended for uses exactly such as this.)
+Your HTML5 compliant anchors might look like this:<br />
+<span class="code">&lt;a href="xyz" class="floatbox" <b>data-fb-options="option1:value1 option2:value2 etc."</b>&gt;</span>.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="pageoptions" />
+<h4>Setting page-specific options</h4>
+<p>
+All the default options listed at the top of floatbox.js can be overridden for a specific page by including an object definition called "fbPageOptions" in the head section of that page.
+You could for example set a specific color scheme, animation values and navigation types for a for a page of floatboxed content with the following page-specific javascript object:<br />
+<span class="blockcode">
+&lt;script type="text/javascript"&gt;<br />
+&nbsp;&nbsp;fbPageOptions =  {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;color: 'blue',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;resizeDuration: 5.5,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;imageFadeDuration: 4.5,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;overlayFadeDuration: 0,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;navType: 'both'<br />
+&nbsp;&nbsp;};<br />
+&lt;/script&gt;<br />
+</span>
+Note the syntax: there are commas after each name:value pair except for the last one.
+When running floatbox from iframed pages, the fbPageOptions object definition needs to be in the head section of the top document.
+</p><p>
+You can also define an object on your host page called "fbChildOptions".
+Options defined in this object apply to child boxes only.
+Child boxes inherit option preferences from the parent box, but can be overridden with fbChildOptions and the childOptions defined in floatbox.js
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="qrystring" />
+<h4>Querystring options</h4>
+<p>
+Setting options in the url querystring is useful primarily for testing and experimentation purposes.
+You can for example add something like this to your address bar's url:<br />
+<span class="code">http://.....?color=yellow&amp;resizeDuration=5&amp;outerBorder=10</span><br />
+Note that there is a special <span class="Code">autoStart</span> option for the querystring which when set to a URL that matches a floatbox-enabled anchor's href, will auto-start that item.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="autoslide" />
+<h4>Example: Start a slideshow from a link</h4>
+<p>
+If an anchor has "doSlideshow:true" set on its rev attribute then, when clicked, the corresponding grouped images (or other content) will be shown as a slideshow.
+This allows for setting up a gallery with a dedicated link to viewing that gallery as a slideshow.
+When you do this, you would normally want to include the option "showThis:false" so that the activating link itself is not included in the invoked slideshow.
+</p><p>
+An anchor element that enables a slideshow could look something like this:<br />
+<span class="code">&lt;a href="" class="floatbox" rev="doSlideshow:true group:myShow showThis:false endTask:exit autoFitImages:true navType:none"&gt;Slideshow&lt;/a&gt;</span><br />
+The images that will be included in the slideshow are those from activated &lt;a&gt; element's that have the same "group" value in their rev attributes.
+If the href in the slideshow anchor matches one in the gallery set, the slideshow will start with that image.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="captions" />
+<h4>Captions</h4>
+<p>
+There are two ways to get floatbox to display caption text.
+One is to set the 'title' attribute on the &lt;a&gt; element and the other is to include a 'caption' entry in the rev attribute options.
+Browsers use the title attribute as a tooltip when the user mouses over an anchor.
+If you want the tooltip and the floatbox caption to be the same, just set the title attribute.
+If you want them to be different, put the caption string into the rev attribute as an option (see below).
+When using the rev caption option, you need to surround the caption text with backquotes (`).
+</p><p>
+Here's two examples:
+</p>
+<ul>
+<li><span class="code">&lt;a href="image1.jpg" class="floatbox" <b>title="This is both a tooltip and a caption"</b>&gt;...&lt;/a&gt;</span></li>
+<li><span class="code">&lt;a href="image1.jpg" class="floatbox" <b>title="This is a tooltip" rev="caption:`This is a caption`"</b>&gt;...&lt;/a&gt;</span></li>
+</ul>
+<p>
+If you set the title or caption option to the string "href", the displayed caption will be the value of the anchor's href attribute.
+This can be useful when displaying iframed content or if you want to display the path/filename of the current image.
+</p><p>
+The rev caption can include html styles and elements such as &lt;br /&gt; or even &lt;a&gt;nchors if you like.
+HTML entity characters (&amp; &quot; &lt; &gt;) in a caption will need to be encoded (&amp;amp; &amp;quot; &amp;lt; &amp;gt;).
+</p><p>
+There's an example of an html styled caption in the 'Bonus' section of the <a href="http://randomous.com/floatbox/demo">demo</a> page.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="autogallery" />
+<h4>Auto Gallery creation</h4>
+<p>
+The "normal" way to create an image gallery for floatbox is to add a floatbox class and rev attribute group option to each image link you want included in the gallery.
+You can auto-create a floatbox gallery without adding this markup to your anchors.
+To do so, include floatbox.js and floatbox.css in the usual fashion (as described above) and set up a fbPageOptions object that contains "autoGallery:true" in it.
+This will tell floatbox to build a gallery set consisting of each image that is the target of an anchor's href attribute.
+If you have a few image links that you want excluded from the autoGallery group, you can exclude them by pre-setting a class of <span class="code">class="nofloatbox"</span> on the ones to be ignored.
+(Note: you can set autoGallery:true in the options section of floatbox.js.
+This will turn every page that you include floatbox on into an auto-gallery page.)
+</p><p>
+You can auto-set a title (caption) on each image link as well.
+Do this by setting the autoTitle option to your desired title string.
+This title will be shown as a caption in the floatbox display.
+(Note that existing titles set on individual links will take precedence when the captions are setup.)
+Also, if you want to include a slideshow link to the auto-created gallery, do so in the normal fashion as described in <a href="#autoslide">this example</a>
+and use a rev attribute grouping option of rev="group:.autoGallery.  (The old school rel="floatbox.autoGallery" still works too).
+</p><p>
+The fbPageOptions object definition for an autoGallery would look something like this:<br />
+<span class="blockcode">
+&lt;script type="text/javascript"&gt;<br />
+&nbsp;&nbsp;fbPageOptions =  {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;autoGallery: true,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;autoTitle: 'This is a caption on every image'<br />
+&nbsp;&nbsp;};<br />
+&lt;/script&gt;<br />
+</span>
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="type" />
+<h4>File &amp; content types</h4>
+<p>
+Floatbox determines what kind of content is being requested based on the file extension from an anchor's href attribute.
+Sometimes you may need to over-ride that detection and specify a content type directly.
+Content type over-ride is always required when loading ajax,
+and can also be needed when you have a .php or .aspx page serving images.
+</p><p>
+By default, .php and .aspx urls will be loaded as iframes.
+To make them load as images, set "type:img" on the anchor's rev tag.
+If you're fetching AJAX content, you need a "type:ajax" over-ride in the rev tag.
+</p><p>
+Example:<br />
+<span class="code">
+&lt;a href="getPix.php?pic=29" class="floatbox" <b>rev="type:img"</b>&gt;...&lt;/a&gt;</span>
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="html" />
+<h4>HTML content: iFrames, AJAX &amp; inline DIVs</h4>
+<p>
+Floatbox handles 3 broad categories of content: images, html and multi-media.
+This section describes handling html content.<br />
+There are 3 ways to load html into a floatbox: as an iframe, using AJAX, and using content from inline hidden DIVs.
+Standard anchor hrefs that aren't recognized as an image or multi-media type will be loaded as iframe content by default.
+To load that html content with AJAX, you need to put "type:ajax" in the anchor's rev attribute.
+To load content from an inline div, give that div a unique ID and reference that div in the anchor's href attribute preceeded by "#" (e.g., href="#myDiv").
+See below for examples.
+</p><p>
+If you are loading forms or active content that includes links or that calls floatbox functions, use an iframe to display that content.
+With AJAX or inline content, floatbox's keyboard handler will interfere with forms and prevent use of tabs, spaces and arrow keys.
+Links clicked from within AJAX and DIV content will navigate the base page to the new link whereas links in iframed content will open inside the floatbox.
+AJAX and inline DIVs are good for displaying static content that does not have form fields or links.
+</p><p>
+When loading content from a hidden div, be aware that it is the innerHTML of that div that gets displayed in floatbox.
+The implication of this is that any styles applied to the hidden div itself will not be in effect when the content is displayed.
+Put your styles on a div inside the hidden div content to have those styles transfer in to the floatbox successfully.
+</p><p>
+There are three rev options that should be assigned to each non-image anchor: "width", "height" and "scrolling".
+Width and height are the numeric size of the iframe window in pixels.
+One or both of width and height can be specified as "max" which will set that dimension to match the current window size.
+Width and height can also be expressed as percentages and will size to that percentage of the available displayable screen area (e.g, rev="width:90%").
+Note that you can also set the "sizeRatio" option to display an item at maximum size while retaining a specific width/height ratio.
+Scrolling is either "no", for no scrollbars, or "auto" for displaying scrollbars in the iframe if they are required.
+If no value for scrolling is given, auto is assumed.
+Galleries aren't just for images.
+You can group multiple html-content pages together into a gallery set using the "group" option in rev attributes for any item type.
+</p><p>
+Here's some examples of anchor tags that load html content:<br />
+IFrame: <span class="code">&lt;a href="mypage.html" class="floatbox" rev="width:400 height:530 scrolling:no"&gt;...&lt;/a&gt;</span><br />
+AJAX: <span class="code">&lt;a href="mypage.html" class="floatbox" rev="type:ajax width:400 height:530 scrolling:no"&gt;...&lt;/a&gt;</span><br />
+Inline DIV: <span class="code">&lt;a href="#divID" class="floatbox" rev="width:400 height:530 scrolling:no"&gt;...&lt;/a&gt;</span><br />
+</p><p>
+The following section gives information about loading multimedia content, either directly or as iframe content.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="multimedia" />
+<h4>Multimedia: Flash, Silverlight, QuickTime, YouTube, etc.</h4>
+<p>
+Multi-media content type is recognized by floatbox based on the file extension in an anchor's href.
+.swf files are loaded with the flash plugin, .xap files are loaded using Silverlight, and .mov .mpg .mpeg and .movie extensions will be loaded with the QuickTime plugin.
+In addition to locally served multi-media files, you can load floatbox content directly from online video services such as YouTube, Yahoo Video, Vimeo, Google Video, Metacafe and many others.
+If the required plugin is not available on the client browser, floatbox will display a notice (in English) with a link to the plugin download page.
+</p><p>
+For flash content, floatbox assigns the following parameter default values: wmode=window, allowfullscreen=true, scale=exactfit, play=true, loop=true, quality=high.
+You can over-ride these plus 'bgcolor', 'base', 'menu' and 'salign' by providing new values in the href url's querystring.<br />
+e.g., <span class="code">&lt;a href="myflash.swf?wmode=opaque&amp;amp;bgcolor=#ffffff&amp;amp;scale=default" class="floatbox" rev="width:320 height:240 scrolling:no"&gt;...&lt;/a&gt;</span><br />
+If your flash object requires flashvars to be set, you can put these flashvars in the href url's querystring.
+Flash always treats flashvars and querystring vars equivalently and it doesn't matter in which location the settings appear.
+</p><p>
+Quicktime default parameters used are autoplay=true, controller=true, showlogo=false and scale=tofit.
+These can be overridden with a querystring in the same manner as described for flash.<br />
+All Silverlight control parameters are left as defaults and can be set through the querystring.
+</p><p>
+Most online video services are recognized as flash content because they load their videos using the .swf file extension.
+Youtube and Dailymotion are exceptions, but they too are recognized as flash content by floatbox.
+Please see the Multimedia section of the <a href="http://randomous.com/floatbox/demo">demo</a> page for lots of examples of direct loading flash, silverlight, quicktime and online services.
+</p><p>
+To setup a youtube href, you can use either the embed path to the youtube video or the url of the youtube page that shows the video.
+For example, the following two youtube paths will both work identically:<br />
+embed path - <span class="code">"http://www.youtube.com/v/lj3iNxZ8Dww?fs=1"</span><br />
+page path - <span class="code">"http://www.youtube.com/watch?v=lj3iNxZ8Dww"</span><br />
+</p><p>
+It is usually best to direct-load multi-media files.
+Floatbox direct-load code contains some fixes for troublesome objects in some browsers.
+You can also load multi-media content as ajax or iframes.
+There may be times when you want to do this to gain more control over the displayed object.
+For an ajax load, just bring in the object/embed code (or the required javascript if you're using script to setup your objects).
+For an iframe load, you will want to have a complete and properly setup html document with a head and body section.
+Make sure your iframe's document body has no margin or padding: <span class="code">body {margin: 0; padding: 0; }</span>
+Then set the iframe width and height to the exact dimensions of your multi-media object and add "scrolling:no" to your rev tag.
+There's a sample on the demo page.
+And lastly, you can't load multi-media in from a hidden div.  It just won't work in most browsers.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="altcontent" />
+<h4>Alternate content for javascript-disabled browsers</h4>
+<p>
+You may wish to provide alternate content for users who have javascript disabled in their browsers.
+If your page is setup to display images in floatbox but javascript is disabled, clicking on the image link will simply display that image on a blank page.
+To provide a more friendly experience in this case, you can set the link's href attribute to point to your friendly non-javascript content and use floatbox's "href" option in the rev attribute to provide the image path to floatbox.
+A floatboxed link with alternate content might look like this:<br />
+<span class="code">
+&lt;a href="altGallery.html" class="floatbox" rev="href:`myImage.jpg`"&gt;&lt;img src="myThumbnail.jpg" /&gt;&lt;/a&gt;
+</span><br />
+In this case, when myThumbnail.jpg is clicked floatbox will display myImage.jpg and javascript-disabled browsers will navigate to the altGallery.html page.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="popup" />
+<h4>Popup thumbnails</h4>
+<p>
+You can configure anchors to have a popup thumbnail that appears when the mouse is over the anchor and disappears when the mouse moves off.
+The popup thumbnails can be clicked to load an associated image in floatbox.
+Combining popup thumbnails with floatbox's ability to zoom from a thumbnail to an image makes for a nice effect.
+Popup thumbnails are enabled by assigning a class of "fbPopup" to the &lt;a&gt;nchor element. Here's an example:<br />
+<span class="code">
+&lt;a class="fbPopup floatbox" href="myImage.jpg"&gt;clickable text&lt;img src="myThumbnail.jpg" /&gt;&lt;/a&gt;
+</span>
+<br />Popup thumbnails set with fbPopup appear just above the hovered anchor.
+If you prefer the thumbnails to show below the anchor, use a class name of "fbPopdown" instead.
+</p><p>
+As you might guess, there's samples in the 'Bonus' section of the demo page.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="info" />
+<h4>Info box for secondary content</h4>
+<p>
+There are occasions when it is helpful to display additional information about your floatbox content.
+For photogrpahs, this might be descriptive text, EXIF information or a popup location map.
+Forms or other html content may have associated help or other information that can be effectively presented in a second floatbox.
+Floatbox's info box capability addresses this usage.
+When enabled, a link will appear in the lower left of the floatbox frame which activates the information box.
+</p><p>
+There are three option tags you can put in your anchor's rev attribute to enable and configure an info box.<br />
+1) Assign the url that points to the information source using the rev option "info". E.g., "info:myInfoPage.html" or "info:#myInfoDiv".<br />
+2) Set floatbox options for the secondary info box using the rev option "infoOptions". E.g., "infoOptions:`color:white width:400 height:300`".
+(Note that the backquotes are required to enable correct parsing.)<br />
+3) By default the link in the floatbox frame will display the text "Info..." or its localized language equivalent.
+You can override this with the "infoText" option. E.g., "infoText:`EXIF data...`".
+</p><p>
+A complete anchor with an associated info box could look like this:<br />
+<span class="code">
+&lt;a href="myPhoto.jpg" class="floatbox" rev="info:#myInfoDiv infoOptions:`color:white width:400 height:300`"&gt;click here&lt;/a&gt;
+</span>
+</p><p>
+Yes, there's an example or two on the demo page (in the 'Bonus' section).
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="print" />
+<h4>Print contents</h4>
+<p>
+If you set "showPrint:true" in a floatboxed anchor's rev attribute, a "Print..." link will be shown in the info panel area.
+When clicked, this link will invoke a second browser instance that will display just the contents of the floatbox window and will show the print dialog for this new browser instance.
+The contents that will be printed will be just that from the floatbox display, not the surrounding eye candy and not the host page content.
+</p><p>
+In some circumstances you may find that you want to add css styling to the print window contents.  You can do this with the printCSS rev tag option.
+If printCSS is a URL path to a css file, that css file will be attached to the print window.
+Or, you can just put css syntax directly into this rev option, surrounded by backquotes.
+For example: <span class="code">rev="showPrint:true printCSS:/css/print.css"</span>
+or <span class="code">rev="showPrint:true printCSS:`p {font-size: 11px;} etc...`"</span>
+You often don't need to add any css stuff for printing, but it's there if you need it.
+</p><p>
+Note that printing is not available for iframe content that comes from a different domain than the base page (cross-site script blocking).
+If you are displaying a cross-domain iframe in floatbox, the "Print..." option will not be displayed.<br />
+As usual, see the demo page ('Bonus' section) for an example.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="indexlinks" />
+<h4>Index links in a gallery</h4>
+<p>
+Galleries of multiple images (or other content) can have a series of simple numbered links shown either in the info panel or control panel.
+If there are thumbnails associated with linked images, these thumbnails will be displayed as small popups when the numbered link is hovered with the mouse.
+</p><p>
+Primary control over the display of index links is done with the numIndexLinks option.  If this is zero, index links will not be shown.
+If it is -1, there is no limit on the number of index links shown - there will be a link for each image in the gallery group.
+Any positive integer and the number of links shown will be limited to this amount (in case you don't want a huge list of numbered links for your gallery of 479 pictures).
+</p><p>
+Two other options affect index links.  You can turn off the thumbnail popups by setting showIndexThumbs to false.
+The location of the index links is controlled by the indexLinksPanel option.
+Set this to 'control' to put index links in with the control widgets, or set it to 'info' to put the links in with the caption and other text goodies.
+</p><p>
+You can see index links in action on the "Include Index Links" sample on the demo page.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="language" />
+<h4>Language localization</h4>
+<p>
+Floatbox includes language localization files for 29 languages.
+The strings in these files are used as tool tip hints for the floatbox controls,
+the "image x of y" display, the text displayed on "Info.." and "Print..." links,
+and the strings shown when a required multimedia plugin is not present.
+The correct language file will be selected for use based on the localization settings or your site visitor's browsers.
+You can set floatbox to always use one particular language file by setting the "language" option.
+But it is recommended that you not do this.  By leaving language as "auto", your visitors will get the corrent language for themselves.
+</p><p>
+There are two sets of graphics used for the floatbox controls.  One set has English text on the controls ("Close", "Next", etc.),
+while the other set is purely graphical.
+In the default setting, the English controls will be served to people with English-localized browsers
+and all other users will get the non-graphical, international controls.
+You can use international controls for everybody, including English speaking folk, but setting graphicsType to "international".
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="auto" />
+<h4>Auto-start and exit tasks</h4>
+<p>
+You can have floatbox content appear directly on page load by using the autoStart rev option.
+Put "autoStart:true" into the rev attribute of the floatbox-enabled item that you want to run automatically.
+As soon as the page loads, floatbox will start with this item displayed.
+You can use "autoStart:once" to have that tagged item display only on the first page load of the session.
+Doing this sets a session cookie when the item is first shown and that item will not be auto-shown again as long as that session cookie is present.
+</p><p>
+You can also invoke an auto-start through a query string on the url used to invoke the page.
+For example, a url of <span class="code">"http://mydomain.com/mypage.html?autoStart=myimage.jpg"</span>
+will auto-start myimage.jpg provided there is an anchor on the page that is setup for floatbox and that has that image as its href value.
+Note that the query string value only has to match the right-hand side of the anchor's href.
+The given example would match an href of "/images/this_is_myimage.jpg".
+</p><p>
+Floatbox can automatically load or reload a web page in the browser when it exits.
+The "loadPageOnClose" option is used to make this happen.
+Set loadPageOnClose to the string 'self' to refresh the host page on exit.
+This can be useful if your floatboxed content has modified some back-end content and the host page needs to be refreshed to reflect the changes.
+If you set loadPageOnClose to the string 'back', the previous page in the browser's history list will be loaded.
+This is used in the APOD slideshow on the demo page.
+If loadPageOnClose is neither 'self' nor 'back', it is assumed to be a valid url and the browser will be instructed to load that page.
+If you set loadPageOnClose to a url inside a rev tag option string, you must surround the url with backquotes (`) so as not to break parsing of the option string.
+</p><p>
+The use of callback functions in floatbox may be of interest here. You can read about them in the programmer's <a href="api.html">API</a> reference.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="imagemap" />
+<h4>Image map areas</h4>
+<p>
+Floatbox can work with <a href="http://www.w3schools.com/js/js_image_maps.asp">image map areas</a> the same way it does for standard &lt;a&gt; elements.
+To do this, set up the class, rev and title attributes as described above, but for image maps these attributes go on the map's &lt;area&gt; elements.
+There's an example in the 'Bonus' section of the <a href="http://randomous.com/floatbox/demo">demo page</a>.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="navigation" />
+<h4>Navigation and controls</h4>
+<p>
+Floatbox includes controls for moving to previous and next items in a group, resizing, playing and pausing a slideshow, and exiting.
+These controls are graphical and loaded from the graphics folder.
+If the configuration setting "graphicsType" in the floatbox.js file is set to the default "auto",
+browsers that are configured with a localized language other than English will see graphics-only controls.
+Localized English browsers will see control graphics that include English words.
+</p><p>
+There are two sets of previous/next controls for grouped items.
+"Overlay" navigation displays a small graphics on top of the displayed image when the mouse is over the left or right side of the image.
+"Button" navigation displays a clickable <span class="code">&lt;&lt; prev || next &gt;&gt;</span> (or the international equivalent) in the box frame outside of the content.
+You can use either or both of these by setting the navType option.
+My favourite setting is to set navType to "both" and set showNavOverlay to "never".
+This allows navigation to occur by clicking on the image (or on the button nav control) but does not display the popup graphic over top of the image.
+</p><p>
+When the floatbox content has been shrunk from its native size to fit the screen, or when it is displayed larger than the current screen size,
+a resize control will be displayed which can be used to toggle the item's size.
+The "resizeTool" option controls whether the resize control will be a custom maginfying-glass cursor or a small graphic in the top left corner.
+If the custom cursor is used and overlay navigation is enabled, click-resizing is active only in the space between the two upper navigation areas.
+(Opera always gets the graphic in the top left corner because it can't do custom cursors.)
+</p><p>
+When enableKeyboardNav is set to true, the following keys can be used in place of mouse-clicking the controls:
+</p>
+<ul>
+<li>Close: <span class="code">Esc</span></li>
+<li>Previous item in a group: <span class="code">left arrow</span></li>
+<li>Next item in a group: <span class="code">right arrow</span></li>
+<li>Toggle play and pause: <span class="code">spacebar</span></li>
+<li>Resize item: <span class="code">Tab</span></li>
+</ul>
+<p>
+If the Ctrl key is used together with the left or right arrow, floatbox will jump 5 items ahead or back in the sequence.
+This is to facilitate quick navigation when using floatbox as a poor-man's PowerPoint.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="appearance" />
+<h4>Appearance</h4>
+<p>
+There's lots of control over floatbox's appearance.
+You can set the colors, round corners, border sizes, display of controls, shadow effect, transparencies and various animation effects through the configuration options.
+Most of the General options, some of the Navigation options, and all of the Animation options are for configuring appearance.
+See the <a href="options.html">options</a> reference for details on the use of these (and other) options.
+</p><p>
+Floatbox has a "color" option which controls the color scheme used by the box.
+Included color schemes are white, black, blue, red, yellow and custom.
+"custom" is for creating and using your own customized color scheme for floatbox.
+Look for "custom.css" in the modules folder and edit your color and control backgrounds settings there.
+If you are using round corners with your custom color scheme, you will also need to use a graphics editor to modify the custom corner images in floatbox's graphics folder.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="background" />
+<h4>Custom background image</h4>
+<p>
+You can use a graphic as an overlay background image by providing a background-image style for the overlay element.
+In a css file, it would look something like this:<br />
+<span class="code">
+#fbOverlay {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;background-image: url(bkgrnd.gif);<br />
+}<br />
+</span>
+You can place the background directive in an external css file together with the appropriate include in the head section of your page,
+or you can put it directly inside a <span class="code">&lt;style type="text/css"&gt;&lt;/style&gt;</span> section in the page head.
+Of course, background-image can also be added to floatbox.css if you want it universally applied, but this will prove to be a pain when you upgrade to a new version.
+</p><p>
+If you use a custom background image you may want to set overlayOpacity to 100, or maybe play with lower values to fade the background image.
+For an example of a custom background and the use of autoStart and loadPageOnClose, check out the APOD slideshow on the <a href="http://randomous.com/floatbox/demo">demo page</a>.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="childoptions" />
+<h4>Options for child windows</h4>
+<p>
+You can have stacked floatboxes, one on top of the other.  The first floatbox loaded is the primary box.
+Boxes loaded after that are considered child boxes of the primary.
+You can set options that apply only to child boxes in two ways.
+</p><p>
+The first is to edit the 'childOptions' section of the default options at the top of floatbox.js.
+The second is to define a javascript object on your page called 'fbChildOptions'.
+The fbChildOptions object is very similar to the fbPageOptions object that is described elsewhere in these instructions,
+but applies only to child boxes.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="iniframes" />
+<h4>Running in iFramed pages</h4>
+<p>
+You can run floatbox from iframed pages if you like, and those iframes can be nested as deep as you want.
+Floatbox.js needs to be included in the root (top) page and on every page in a nested chain down to and including the last child page that has floatbox content on it.
+For example, if you have a page with iframes nested two deep and floatbox content only in the deepest iframe, you need floatbox.js included in the deep iframe, the parent of that iframe, and the root document.
+The floatbox.css file has to be included in the root page, but does not need to be on the child iframe pages.
+(See the iFrames section of the <a href="http://randomous.com/floatbox/demo">demo page</a> for an example of a floatbox-enabled page with iframes nested two deep.)
+</p><p>
+Note that browsers restrict <a href="http://en.wikipedia.org/wiki/Cross-site_scripting">cross-site scripting</a>.
+Floatbox (and any other lightbox-type script) will not be able to function from within an iframe if the top page and iframed child page do not have identical host name portions of their URLs.
+(You can use framebox.js in these circumstances. See below.)
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="framebox" />
+<h4>Constraining floatbox to a particular iFrame</h4>
+<p>
+Floatbox normally occupies the entire browser window when displaying content by attaching itself to the top document.
+You can, if you like, have floatbox appear only inside a particular iframe and constrain itself to the dimensions of that iframe (or to a frameset child document).
+To do this, include the file framebox.js, instead of floatbox.js, in the head section of the iframe content document and also include floatbox.css.<br />
+<span class="code">&lt;link type="text/css" rel="stylesheet" href="/floatbox/floatbox.css" /&gt;</span><br />
+<span class="code">&lt;script type="text/javascript" src="/floatbox/framebox.js"&gt;&lt;/script&gt;</span><br />
+Framebox.js attaches itself to the current window's document, rather than the top document.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="cycler" />
+<h4>Cycling images and thumbnails</h4>
+<p>
+You can use floatbox to display a cycling set of images or thumbnails on your main page that will rotate through a set of images.
+This can be an effective way to setup a slideshow link or to put a dynamic header at the top of your pages.
+See examples of this under the "bonus" tab on the <a href="http://randomous.com/floatbox/demo">demo</a> page.
+The sample code under those demos are a good way to get started with your own cycle set.
+Use the cycleInterval and cycleFadeDuration options to control timings.
+</p><p>
+The set of images to be cycled goes inside a div with a class of "fbCycler" assigned to it.<br />
+<span class="code">&lt;div class=&quot;fbCycler&quot; style=&quot;height:420px;&quot;&gt;</span><br />
+It's best to assign a specific height to that div which fits the tallest image in your set,
+otherwise it might look a little odd as the div grows to accommodate new images that cycle in.
+</p><p>
+The first image in the cycler set is just a normal image element and will be the only one shown if javascript is disabled:
+e.g., <span class="code">&lt;img src=&quot;image1.jpg&quot; /&gt;</span><br />
+The other images in the fbCycler div are setup a little differently and start without display.  Something like:<br />
+<span class="code">&lt;img style="display:none;" longdesc=&quot;image2.jpg&quot; /&gt;</span><br />
+Notice that we use the longdesc attribute to specify the path to the image file, instead of the normal src attribute.
+This is done to speed up page loading.
+If we assigned a src attribute to each of the hidden images, all the images in the set would be loaded at page start time.
+The floatbox code will move those longdesc attribute into the src attribute one at a time as the images are cycled in.
+Add a few more hidden images and close the div and your basic cycle set is finished.
+</p><p>
+You can add captions to your cycling images. These captions will be centered below the image.
+Assign a caption by bundling both the img element and span element together inside a div.  Like this:<br />
+<span class="code">&lt;div style=&quot;display:none;&quot;&gt;&lt;img longdesc=&quot;image3.jpg&quot; /&gt;&lt;span&gt;text for image3&lt;/span&gt;&lt;/div&gt;</span><br />
+Note that when adding in the span element the "display:none" setting goes on the div wrapper, not on the img element.
+</p><p>
+You can put floatbox anchors with thumbnails in your cycle set to have a floatbox gallery or slideshow that is coordinated with the cycling thumbs.
+Such a set looks similar to the basic cycling image set described above, but instead of putting img elements in the set, you put anchors in.
+Like this:
+<span class="blockcode">
+&lt;div class=&quot;fbCycler&quot; style=&quot;height:100px;&quot;&gt;<br />
+&lt;a href=&quot;image1.jpg&quot; class=&quot;floatbox&quot; rev=&quot;group:cycle1&quot;&gt;&lt;img src=&quot;thumb1.jpg&quot; /&gt;&lt;/a&gt;<br />
+&lt;a style=&quot;display:none;&quot; href=&quot;image2.jpg&quot; class=&quot;floatbox&quot; rev=&quot;group:cycle1&quot;&gt;&lt;img longdesc=&quot;thumb1.jpg&quot; /&gt;&lt;/a&gt;<br />
+etc...<br />
+&lt;/div&gt;
+</span>
+Notice that "display:none" goes on the anchors and that the thumbnail img elements are using the "longdesc" trick to speed load time.
+</p><p>
+And finally, you can add caption text to your cycling thumbnails by following your thumbnail img element with a span element. Like this:<br />
+<span class="code">&lt;a style=&quot;display:none;&quot; href=&quot;image3.jpg&quot; class=&quot;floatbox&quot; rev=&quot;group:cycle1&quot;&gt;&lt;img longdesc=&quot;thumb3.jpg&quot; /&gt;&lt;span&gt;text for thumb3&lt;/span&gt;&lt;/a&gt;</span><br />
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="ajax" />
+<h4>Dynamically loading floatbox content via AJAX or UpdatePanel</h4>
+<p>
+When floatbox first loads on a page, it runs its tagAnchors function to inventory all the floatbox-enabled anchors and area maps on the page, and to add the required onclick action to those anchors.
+If you subsequently dynamically update a portion of your page with content from an AJAX fetch, any floatbox-enabled anchors in that content won't be in floatbox's inventory and won't have the required onclick action attached to them.
+So what you have to do is to run the tagAnchors function against your new content after it arrives.
+</p><p>
+Your existing AJAX content insertion might look something like this:<br />
+<span class="blockcode">
+if (xmlReq.readyState == 4) {<br />
+&nbsp;&nbsp;document.getElementById('myXmlDiv').innerHTML = xmlReq.responseText;<br />
+}<br />
+</span>
+</p><p>
+Light up the floatbox anchors in that dynamic content by adding the following two lines after that insertion:<br />
+<span class="blockcode">
+if (xmlReq.readyState == 4) {<br />
+&nbsp;&nbsp;document.getElementById('myXmlDiv').innerHTML = xmlReq.responseText;<br />
+&nbsp;&nbsp;fb.anchors.length = 0;<br />
+&nbsp;&nbsp;fb.tagAnchors(document);<br />
+}<br />
+</span>
+This clears the existing inventory of anchors and then re-inventories the entire document, including the freshly added new content.
+Now your new floatbox anchors will work.
+</p><p>
+If you are using an ASP.NET UpdatePanel, you can set a callback function to fire the floatbox tagging after your panel has finished updating.
+Put this javascript on the page:<br />
+<span class="blockcode">
+function pageLoad(sender, args) {<br />
+&nbsp;&nbsp;if (args.get_isPartialLoad()) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;fb.anchors.length = 0;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;fb.tagAnchors(document);<br />
+&nbsp;&nbsp;}<br />
+}<br />
+</span>
+</p><p>
+Or... as an alternative to getting the fb.tagAnchors function to fire at the right time,
+you could setup your new anchors with their own onclick action instead of giving them a class of "floatbox".
+For example, the following anchor will fire up in floatbox when clicked without needing to "tagged":
+<span class="blockcode">
+&lt;a href="somePage.html" onclick="fb.anchors.length = 0; fb.tagAnchors(document); fb.start(this); return false;"&gt;do it&lt;/a&gt;
+</span>
+You can add options to the above sample anchor in the usual way by adding the desired rev attribute settings.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="gzip" />
+<h4>Serving gzip compressed files on Apache</h4>
+<p>
+Warning: This section discusses modifying your .htaccess file and using mod_rewrite on your Apache server.
+This is a bit of a black art.  What works on one server configuration may not work another.
+No support or assistance is provided for modifying your .htaccess file or for serving the gzip files.
+</p><p>
+The modules folder contains gzipped versions of the .js and .css files in it.
+The gzip files are a fraction of the size of the original files, but serve exactly the same content to the browser.
+You can direct your Apache server to serve these gzip files through your .htaccess file.
+The .htaccess file can be located in the floatbox or modules folder itself if you only want to serve floatbox gzipped files.
+If you want to enable gzipped files across your site, the .htaccess directives can go in your site's root folder.
+</p><p>
+Here's the suggested (but unsupported) htaccess directives to enable gzip file serving.<br />
+<span class="blockcode">
+&lt;IfModule mod_rewrite.c&gt;<br />
+&lt;IfModule mod_headers.c&gt;<br />
+<br />
+Options -MultiViews<br />
+RewriteEngine on<br />
+# if you are using folder aliases, you will need to set the correct RewriteBase for this folder<br />
+# RewriteBase /<br />
+<br />
+&lt;FilesMatch "\.js\.gz$"&gt;<br />
+	ForceType text/javascript<br />
+	Header set Content-Encoding: gzip<br />
+&lt;/FilesMatch&gt;<br />
+<br />
+&lt;FilesMatch "\.css\.gz$"&gt;<br />
+	ForceType text/css<br />
+	Header set Content-Encoding: gzip<br />
+&lt;/FilesMatch&gt;<br />
+<br />
+RewriteCond %{REQUEST_FILENAME}.gz -f<br />
+RewriteCond %{HTTP:Accept-encoding} gzip<br />
+RewriteRule ^(.+)$ $1.gz [L]<br />
+<br />
+&lt;/IfModule&gt;<br />
+&lt;/IfModule&gt;<br />
+</span>
+</p><p>
+The two main files, floatbox.js and framebox.js, are not provided in gzip format because you may want to edit the default options section of these files and set things to your liking.
+If you want to serve gzipped version of these files, first set your default options and then create gzipped versions from the modified js files.
+(<a href="http://www.gnu.org/software/gzip/">GNU.org</a> - <a href="http://gnuwin32.sourceforge.net/packages/gzip.htm">Gzip for Windows</a>)
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr id="actionscript" />
+<h4>Launching floatbox from flash ActionScript</h4>
+<p>
+This topic has very little to do with floatbox, and everything to do with authoring behaviours in your flash objects.
+But there's a demand for this information so perhaps the little bit here will help you.
+</p><p>
+The generic task to be solved is one of getting a click action on your flash object to fire a javascript function on the host page.
+The specific floatbox task is then the simple one of getting that javascript function to fire floatbox.
+There are different ways to approach this. I'm giving just one of those ways here, but I think this is a clean way to do it.
+</p><p>
+Create a button in your flash object. Give it a name. Let's call ours "button1".
+Now define a click action on the button.
+In ActionScript 2, you can set the that click action on the button's action panel with <span class="code">on(release) { ... }</span>.
+However, I think it's cleaner to define all actionscript on the generic action panel of your layer object.
+</p><p>
+On your flash layer define an action like the following (this is ActionScript 2):<br />
+<span class="blockcode">
+button1.onRelease = function() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;getURL("javascript:button1Click()");<br />
+};<br />
+</span>
+</p><p>
+ActionScript 3 does not have a getURL function.  For AS3, use the slightly more complex:<br />
+<span class="blockcode">
+function myFunc(event:MouseEvent):void {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;var request:URLRequest = new URLRequest("javascript:button1Click()");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;navigateToURL(request, "_self");<br />
+}<br />
+button1.addEventListener(MouseEvent.CLICK, myFunc);<br />
+</span>
+</p><p>
+That's it. Now you're all done with your flash object.
+What we've got now is a button that when clicked will fire a javascript function named "button1Click" on the host page.
+We just need to define that javascript function in the head of our page to do whatever we want when the flash button is clicked.
+Here you should refer to the floatbox <a href="api.html">API reference</a> to learn about launching floatbox from javascript.
+</p><p>
+But here's a hint.  If you've got a standard floatbox anchor setup on the page, and you give that anchor a unique id, like "myAnchor", your button1Click function might look like this:<br />
+<span class="blockcode">
+button1Click = function() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;fb.start(document.getElementById('myAnchor'));<br />
+};<br />
+</span>
+</p><p>
+It's that easy. One word of warning though: Dont' return anything from your js button1Click function or the page will try to navigate to that return value.
+There's a couple of samples (done a little differently than described here) in the 'Code' section of the floatbox <a href="http://randomous.com/floatbox/demo">demo page</a>.
+</p><p>
+<a href="#index">Back to Index</a>
+</p>
+
+<hr />
+</div>
+</body>
+</html>

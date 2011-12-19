@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="John Smith">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/yoxview.css?v=2">
+  <script src="js/libs/modernizr-1.6.min.js"></script>
+	
+</head>
+
+<body>
+
+<img src="images/sun.png" alt="" id="sun" />
+<div class="page">
+            <h1>The John Smith</h1>
+            <div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+                <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+                    <li class="ui-corner-top ui-tabs-selected ui-state-active"><a href="#Overview" title="Overview">Home</a></li>
+                    <li class="ui-corner-top ui-state-default"><a href="./features.html" title="Features">Features</a></li>
+                    <li class="ui-corner-top ui-state-default"><a href="./extras.html" title="Extras">Extras</a></li>
+                </ul>
+                <div class="ui-tabs-panel">
+                    <p>
+                        This demo utilizes the jQuery UI tabs widget. 
+                        The content is loaded using Ajax and each tab has it's own unique link.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))</script>
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js'></script>
+
+  <!-- scripts concatenated and minified via ant build script-->
+  <script type="text/javascript" src="js/mylibs/jquery.address-1.3.min.js"></script>
+	<script type="text/javascript" src="js/yoxview-init.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/scripts.js"></script>
+  <!-- end concatenated and minified scripts-->
+  
+  
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script> DD_belatedPNG.fix('img'); </script>
+  <![endif]-->
+
+  <script>
+   var _gaq = [['_setAccount', 'UA-15583110-1'], ['_trackPageview']];
+   (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+   })(document, 'script');
+  </script>
+  
+</body>
+</html>

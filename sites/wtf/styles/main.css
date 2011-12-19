@@ -1,0 +1,70 @@
+/* Project:WTF 
+	 Author:Team FTW!
+	 
+	   :::::::::::::::::::::   :::     ::: :::        ::::::::::::::::::::::::     :::
+     :+:   :+:        :+::+:  :+:+::+:+:       :+:          :+:   :+:     :+:
+    +:+     +:+         +:+   +:+  +:+ +:+:+ +:+        +:+            +:+     +:+       +:+   
+   +#+     +#++:++#   +#++:++#++:+#+  +:+  +#+        :#::+::#       +#+     +#+  +:+  +#+    
+  +#+     +#+        +#+     +#+ +#+       +#+        +#+            +#+     +#+ +#+#+ +#+     
+ #+#     #+#        #+#     #+# #+#       #+#        #+#            #+#      #+#+# #+#+#       
+###     ########## ###     ### ###       ###        ###            ###       ###   ###         
+
+*/
+iframe{display:none !important;}
+header, section, footer, aside, nav, article, figure{display:block;}
+::-moz-selection{background:#fff !important;color:#638421;text-shadow:none;}
+::selection{background:#fff !important;color:#638421;text-shadow:none;} 
+.group:before, .group:after{content:"\0020";display:block;height:0;visibility:hidden;}
+.group:after{clear:both;}
+.floatR{float:right;}
+.floatL{float:left;}
+
+body{font:13px/1.4 "Helvetica Neue", Arial, Helvetica, sans-serif;margin:0;padding:0;color:#000;background:url(../images/blueBg.png) repeat fixed 0 0 #CDE69C;}
+button{background-color:rgba(205, 230, 156, .25);border:1px solid #A5D24A;border-radius:2px;color:#638421;padding:5px;text-decoration:none;cursor:pointer;margin-top:6px;min-width:120px;text-shadow:1px 1px #fff;}
+button:hover{background-color:#CDE69C;}
+textarea{resize:none;} 
+
+#wrapper{min-height:800px;}
+#container{width:960px;margin:10px auto;}
+#giddyup{background:#f3e9da;background:-webkit-gradient(radial, center center, 0, center center, 460, from(#fff), to(#f3e9da));box-shadow:0 1px 4px #555;padding:8px 20px 8px;height:68px;position:relative;}
+#giddyup section{margin:0 auto;position:relative;width:960px;}
+#giddyup h1{cursor:help;margin:0;font-size:6.692em;font-family:'Bowlby One SC', sans-serif;text-shadow:1px 1px 0px #fff;position:absolute;top:-18px;color:#57abe2;}
+
+#giddyup small{font-family:'Maven Pro',"Helvetica Neue", Arial, Helvetica, sans-serif;position:absolute;left:275px;top:52px;color:#555;text-shadow:1px 1px 0 #EEE;font-size:1.6em;}
+
+#me, #them{margin:60px;border:1px solid #666;border-radius:2px;min-height:220px;padding:10px 20px;position:relative;background:#fff url(../images/quote.png) no-repeat;box-shadow:0 0 10px #fff;}
+#me:hover, #them:hover{box-shadow:0 0 40px #fff;}
+
+#me h1, #them h1{margin:0;position:relative;top:-33px;left:39px;padding:4px 12px 0px;background:white;display:inline-block;border:1px solid #666;border-bottom-style:none;border-top-left-radius:7px;border-top-right-radius:7px;color:#427ea5;text-transform:uppercase;}
+#me-submitted{display:none;background-color:rgba(0, 0, 0, .02);border:1px solid #ccc;border-radius:2px;font-family:'Maven Pro', cursive;margin:6px 0 0;padding:10px 20px;}
+#me-submitted p{color:#427ea5;font-size:1.2em;font-weight:bold;line-height:1.1em;text-shadow:1px 1px 1px #fff;}
+#me-ask, #me-answer{background-color:rgba(255, 255, 255, 0.5);border:1px solid #aaa;border-radius:2px;font-family:'Maven Pro',cursive;font-size:16px;height:70px;padding:8px;width:780px;}
+#me-ask-tags{border-radius:2px;border:1px solid #aaa;padding:3px;width:251px;}
+#me footer, #them footer{text-align:right;}
+
+#me footer button, #them footer button{padding:6px 10px;font-size:14px;float:right;}
+
+.question{font-size:18px;}
+
+.passer{clear:both;cursor:pointer;float:right;}
+.passer:hover{color:#d73d4e;}
+
+#feedback{background-color:rgba(205, 230, 156, .25);color:#638421;font-size:1.4em;text-align:center;}
+
+#loveme{margin-bottom:12px;}
+
+.helper{color:#aaa;float:left;margin-top:6px;}
+.smlBtn{background-color:#fff;border:1px solid #eee;padding:2px 5px;}
+.stats-views{margin-bottom:6px;}
+
+/* Footer */
+#dsw{background-color:#57abe2;background:-webkit-gradient(radial, center center, 0, center center, 460, from(#b5d7f5), to(#57abe2));border-top:2px solid #4FB3E6;color:#2f5f7e;height:200px;padding:20px 0;text-align:center;text-shadow:1px 1px #b5d7f5;}
+#dsw strong{cursor:help;} 
+
+/* tagsinput */
+.tagsinput{background:#fff;border:1px solid #CCC;border-radius:2px;padding:5px;width:300px;height:auto;overflow-y:auto;}
+.tagsinput .tag{border:1px solid #a5d24a;-moz-border-radius:2px;-webkit-border-radius:2px;display:block;float:left;padding:5px;text-decoration:none;background:#cde69c;color:#638421;margin-right:5px;margin-bottom:5px;font-family:helvetica;font-size:1em;}
+.tagsinput .tag a{font-weight:bold;color:#82ad2b;text-decoration:none;font-size:.93em;} 
+.tagsinput input{width:80px;margin:0;font-family:helvetica;font-size:1em;border:1px solid transparent;padding:5px;background:transparent;color:#000;outline:0;margin-right:5px;margin-bottom:5px;}
+.tagsinput div{display:block;float:left;} 
+.tags_clear{clear:both;width:100%;height:0;}

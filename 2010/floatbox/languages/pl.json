@@ -1,0 +1,16 @@
+// Polish
+{
+"hintClose":   "Zamknij (klawisz: Esc)",
+"hintPrev":    "Wstecz (klawisz: ←)",
+"hintNext":    "Dalej (klawisz: →)",
+"hintPlay":    "Odtwarzaj (klawisz: Spacja)",
+"hintPause":   "Wstrzymaj (klawisz: Spacja)",
+"hintResize":  "Przeskaluj (klawisz: Tab)",
+"imgCount":    "Zdjęcie %1 z %2",
+"nonImgCount": "Strona %1 z %2",
+"mixedCount":  "(%1 z %2)",
+"infoText":    "Opis...",
+"printText":   "Drukuj...",
+"flashVer":    "Nowszą wersję 'Flash Player' jest wymagany, aby zobaczyć tę treść.",
+"needPlayer":  "'%1' jest wymagane, aby zobaczyć tę treść."
+}

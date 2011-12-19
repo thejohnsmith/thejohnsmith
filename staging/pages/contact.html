@@ -1,0 +1,39 @@
+<section id="contact">
+<article class="item">
+<h2>Send John a message.</h2>
+<br>
+<form id="commentForm" name="contactform" class="formular" method="post" action="pages/messageProcessor.php">
+	<fieldset>
+    	<label for="name">Name</label>
+        <input required="true" id="Name" type="text" name="name"/>
+    </fieldset>
+    <fieldset>
+    	<label for="email">Email</label>
+
+        <input required="true" id="Email" type="email" name="email" />
+    </fieldset>
+	<fieldset>
+    	<label for="comment">Message</label>
+        <textarea required="true" id="Message" name="comments"></textarea>
+    </fieldset>
+    <input class="submit" type="submit" value="Send the form!"/>
+</form>
+<br>
+<br><br>
+<script src="../js/jquery.tools.min.js"></script> 
+<script> 
+	$(function() {
+		$("#commentForm").validator();
+	});
+
+   var _gaq = [['_setAccount', 'UA-15583110-1'], ['_trackPageview']];
+   (function(d, t) {
+    var g = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    g.async = true;
+    g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g, s);
+   })(document, 'script');
+</script>
+</article>
+</section>

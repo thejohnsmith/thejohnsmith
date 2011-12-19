@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>WTF?</title>
+<link href='styles/main.css' rel='stylesheet' type='text/css'>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/javascript" src="jquery-1.6.2.js"></script>
+<script type="text/javascript" src="jquery.json-2.2.js"></script>
+<script type="text/javascript" src="jquery.websocket-0.0.1.js"></script>
+<script type="text/javascript" src="messaging.js"></script>
+
+<script type="text/javascript">
+var meh;
+$(document).ready(function(){
+	console.log('initializing');
+	meh = SetupConnection({
+		userName: 'jake',
+		qUpdate: function (data){},
+		newQuestion: function (data) {}
+	});
+});
+</script>
+</head>
+
+<body>
+<section id="wrapper">
+<header id="giddyup">
+	<h1>WTF?</h1>
+    <small>When you need the answer right the fuck now.</small>
+</header> <!-- / #giddyup -->
+
+<section id="container">
+	<section id="me">
+    	<header><h1>Ask Your Question</h1></header>
+        <section class="me-form">
+    		<textarea placeholder="Ask away." name="me-ask" id="me-ask"></textarea>
+    		<input type="text" name="me-ask-tags" id="me-ask-tags" placeholder="Tags, comma-separated"/>
+        </section>
+        <section id="me-submitted">
+        	<div class="question">
+            	<p>Once a question is submitted it would replace the form right here... know what I mean?</p>
+            </div>
+        	<div class="stats-views">
+            	viewed by <span class="stats-num">4</span>
+            </div>
+        </section>
+        <footer>
+        	<button>Ask</button>
+        </footer>
+    </section> <!-- / #me -->
+	
+    <section id="them">
+    	<header><h1>Answer Theirs</h1></header>
+    	<div class="question">
+        	<p>Diam magna augue augue integer diam scelerisque augue nec sagittis cum et massa tincidunt, tincidunt etiam! Montes scelerisque porta nec! Et ac risus duis vel placerat, vel?</p>
+        </div>
+        <div class="answer">
+        	<textarea placeholder="I know this..." name="me-answer" id="me-answer"></textarea>
+            <footer>
+            	<button>Tell them</button>
+            	<div class="passer">or pass</div>
+            </footer>
+        </div>
+    
+    </section> <!-- / #you -->
+
+</section> <!-- / #container -->
+
+</section> <!-- / #wrapper -->
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+/* Floatbox v3.53.0 */
+
+div.fbOverlay_yellow { background-color: #752; }
+div.fbBox_yellow {
+	border-color: #680c0c;
+	background-color: #ed9;
+}
+#fbBox .fbBoxLoader_yellow { background-image: url(../graphics/loader_white.gif); }
+#fbBox .fbMainDiv_yellow { border-color: #700; }
+#fbBox .fbResizer_yellow { background-image: url(../graphics/resizer_yellow.gif); }
+#fbBox .fbDragger_yellow { background-image: url(../graphics/dragger_yellow.gif); }
+#fbBox .fbOverlayPrev_yellow { background-image: url(../graphics/overlayPrev_yellow.gif); }
+#fbBox .fbOverlayNext_yellow { background-image: url(../graphics/overlayNext_yellow.gif); }
+#fbBox .fbItemNumber_yellow, #fbBox #fbIndexLinks.fbIndexLinks_yellow, #fbBox #fbIndexLinks.fbIndexLinks_yellow a:link, #fbBox #fbIndexLinks.fbIndexLinks_yellow a:visited { color: #700; }
+#fbBox .fbCaptionDiv_yellow, #fbBox .fbInfoPanel_yellow a:link, #fbBox .fbInfoPanel_yellow a:visited, #fbBox #fbIndexLinks.fbIndexLinks_yellow a:hover { color: #700; }
+#fbBox .fbPrev_yellow { background-image: url(../graphics/prev_yellow.gif); }
+#fbBox .fbNext_yellow { background-image: url(../graphics/next_yellow.gif); }
+#fbBox .fbPrev_yellow_off { background-image: url(../graphics/prev_yellow_off.gif); }
+#fbBox .fbNext_yellow_off { background-image: url(../graphics/next_yellow_off.gif); }
+#fbBox .fbPlay_yellow { background-image: url(../graphics/play_yellow.gif); }
+#fbBox .fbPause_yellow { background-image: url(../graphics/pause_yellow.gif); }
+#fbBox .fbClose_yellow { background-image: url(../graphics/close_yellow.gif); }

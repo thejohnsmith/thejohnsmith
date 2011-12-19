@@ -1,0 +1,205 @@
+<!doctype html>  
+
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Ideathon</title>
+  <meta name="description" content="Ideathon by Modern Climate">
+
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <style type="text/css">
+body {
+	background-image: url(assets/on_air_bg.jpg);
+}
+</style>
+  <script src="js/libs/modernizr-1.6.min.js"></script>
+  <script src="js/swfobject.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="js/libs/jquery-1.4.2.js"%3E%3C/script%3E'))  </script>
+  <script src="js/jqModal.js"></script>
+  <script src="js/script.js"></script>
+
+</head>
+
+<body>
+		
+<div id="Viewer"></div>
+<section id="leftSticky"> 
+    <header id="mainHeader">
+ 	<!-- jQuery will handle going back to home :) -->
+    <a href="index.html" id="homeButtom"></a>
+    <!-- These are hidden but not from SEO -->
+	<hgroup id="logo">
+        <h1>Modern Climate</h1>
+        <h2>Ideathon</h2>
+    </hgroup>
+    </header>
+    <section class="stickyBox">
+    <img src="images/leftStickyTopCopy.png">
+    </section>
+    <section class="red stickyBox">
+	<img src="images/redBoxCopy.png">
+    <div id="countDown">00:00</div>
+    <div class="stickyBoxButton" id="theBrief"></div>
+    </section>
+    <section class="gray stickyBox">
+    <a target="_blank" href="http://twitter.com/Ideathon/"><h1>Tweet@Ideathon</h1></a>
+    <div class="tweets"></div>
+    </section>
+</section><!-- /leftSticky -->    
+
+    
+<section id="rightSticky">
+<nav id="rightNav">
+    <ul>
+    	<li id="interactTitle"></li>
+    	<li id="submitYours"><span class="navArrow"></span><a>Submit Your Brief</a></li>
+    	<li id="changeAngle"><span class="navArrow"></span><a>Change Camera Angle</a></li>
+        <li id="makeShout"><span class="navArrow"></span><a>Shout At Tristan</a></li>
+        <li id="makeApplaud"><span class="navArrow"></span><a>Applaud Tristan</a></li>
+        <li id="makeBoo"><span class="navArrow"></span><a>Boo Tristan</a></li>
+    </ul>
+</nav>
+</section><!-- /rightSticky -->
+
+<!-- ::::::::::::::::::::::::::::::::::::::::::::::::thBrief:::::::::::::::::::::::::::::::::::::::::::::::: -->
+<div class="theBrief modalContent">
+<a href="#" class="jqmClose"></a>
+<section id="leftSticky">
+<p><img src="images/mcLogo.png"></p>
+<p>
+  <br>
+  <img src="images/theBriefTitle.png">
+</p>
+
+</section><!-- /leftSticky -->
+<section class="center">
+<img src="images/theBriefCopy.png">
+</section><!-- /center -->
+</div><!-- /modalContent -->
+<!-- ::::::::::::::::::::::::::::::::::::::::::::::::submitYours:::::::::::::::::::::::::::::::::::::::::::::::: -->
+<div class="submitYours modalContent">
+<a href="#" class="jqmClose"></a>
+<section id="leftSticky">
+<p><img src="images/mcLogo.png"></p>
+<p>
+  <br>
+  <img src="images/submitTitle.png">
+</p>
+<p>
+<br>
+<img src="images/briefCopy.png">
+</p>
+</section><!-- /leftSticky -->
+<section class="center">
+<form id="briefForm" onSubmit="sendBrief()">
+<input type="text" style="visibility:hidden; position:absolute; bottom:0;" accesskey="1">
+<input type="text" id="personName" title="Your Name"><input type="text" id="clientName" title="Client Name">
+<input class="longForm" id="assignmentName" type="text" title="Assignment Name"><br>
+<textarea class="longForm" id="briefText" cols="6" rows="6" title="Present your case here please"></textarea>
+<img class="floatL" src="images/brief.png">
+<input class="floatR" id="emailInput" type="text" title="Your Email"><br>
+<input class="floatR" id="briefSubmit" type="submit" value="Submit Challenge">
+</form>
+</section><!-- /center -->
+</div><!-- /modalContent -->
+
+<!-- ::::::::::::::::::::::::::::::::::::::::::::::::changeAngle:::::::::::::::::::::::::::::::::::::::::::::::: -->
+<div class="changeAngle modalContent">
+<a href="#" class="jqmClose altClose"></a>
+<section id="leftSticky">
+<p><img src="images/mcLogo.png"></p>
+<p>
+  <br>
+  <img src="images/angleTitle.png"></p>
+<p>Change your view. Maybe you'll catch that moment of inspiration, or more likely, Tristan picking his nose.</p>
+</section><!-- /leftSticky -->
+
+<section class="center">
+
+<div class="imageContainer">
+<img src="images/cowlickCam.jpg">
+<a href="#" class="altClose" onClick="javascript:launch('18643/camera-1-201944');" >
+God's Eye view
+</a>
+</div><!-- /imageContainer"> -->
+<div class="imageContainer">
+<img src="images/cowlickCam.jpg">
+<a href="#" class="altClose" onClick="javascript:launch('18643/three-quarter-view-202109');">
+Cowlick Cam
+</a>
+</div><!-- /imageContainer"> -->
+<div class="imageContainer">
+<img src="images/flyCam.jpg">
+<a href="#" class="fly altClose" onClick="javascript:launch('18643/camera-3-201946');">
+Fly On The Wall
+</a>
+</div><!-- /imageContainer"> -->
+</section><!-- /center -->
+</div><!-- /modalContent -->
+
+<!-- ::::::::::::::::::::::::::::::::::::::::::::::::makeShout:::::::::::::::::::::::::::::::::::::::::::::::: -->
+<div class="makeShout modalContent">
+<a href="#" class="jqmClose"></a>
+<section id="leftSticky">
+<p><img src="images/mcLogo.png"></p>
+<p>
+  <br>
+  <img src="images/shoutTitle.png"></p>
+<p>
+<br>
+<img src="images/shoutCopy.png">
+</p>
+</section><!-- /leftSticky -->
+<section class="center">
+<form id="shoutForm">
+<input type="text" style="visibility:hidden; position:absolute; bottom:0;"accesskey="1">
+<input class="longForm" type="text" title="Keep it pithy please..." accesskey="2"><br>
+<input class="floatR" id="shoutSubmit" type="submit" value="Scroll Message">
+</form>
+</section><!-- /center -->
+</div><!-- /modalContent -->
+
+<!-- ::::::::::::::::::::::::::::::::::::::::::::::::makeApplaud:::::::::::::::::::::::::::::::::::::::::::::::: -->
+<div class="makeApplaud modalContent">
+
+</div><!-- /modalContent -->
+
+<!-- ::::::::::::::::::::::::::::::::::::::::::::::::makeBoo:::::::::::::::::::::::::::::::::::::::::::::::: -->
+<div class="makeBoo modalContent">
+
+</div><!-- /modalContent -->
+
+
+
+<footer>
+<section id="footerToggle">
+	<img src="images/footerTitle.png">
+</section>
+<section class="socialGuys">
+	<span class="st_twitter_hcount" displayText="Tweet"></span><span class="st_facebook_hcount" displayText="Share"></span>
+</section>
+<section id="footerCopy">
+<img src="images/footerCopy.png">
+<span id="submitYours2"></span>
+</section>
+</footer>
+
+
+<!-- jUnk cRapz -->
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher:'0568843e-5a0b-416f-9b99-6a16a4f39f22'});</script>
+<!--<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+  <!--[if lt IE 7 ]>
+    <script src="js/libs/dd_belatedpng.js"></script>
+    <script> DD_belatedPNG.fix('img, .png_bg'); </script>
+  <![endif]-->    
+
+</body>
+</html>

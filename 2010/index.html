@@ -1,0 +1,355 @@
+<!--
+
+Design by The John Smith
+
+http://www.thejohnsmith.com
+
+* 	If you're reading this then you're a geek.
+* 	I love geeks.
+* 	john@thejohnsmith.com
+*
+* 	<3 alw4ys &amp; 4ever, 
+*
+* 		-John Smith
+
+-->
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Description" content="The John Smith dot com is a website belonging to John Smith of Minneapolis Minnesota. The purpose of the web site is to showcase the art and design of John Matthew Smith." />
+<meta name="Keywords" content="Art, Design, Web Design, Web Development, webdev, parallax, Application Development, appdev, javaScript, Photography, photo, photos, Illustrations, vector, Photoshop, Photoshopped, Minneapolis, Minnesota, TheJohnSmith, JMS, John Smith, john, smith, JohnMatthewSmith, Saint Anthony, St. Anthony, mpls, USA, United States, MetroState, Metro, State, Northeast" />
+<link rel="icon" href="images/star.ico" />
+<title>The John Smith | Home</title>
+<style type="text/css">
+*{outline:none;}
+body {background:#A2D6F2 url(images/sun.png) no-repeat scroll right top;color:#333;font-family:"Courier New", Courier, monospace;}
+a{color:#444444;font-family:monospace;text-decoration:none;}
+a:hover {color:#000;}
+a img{border:none;}
+br.clear {clear:both;}
+.floatLeft{float:left;margin-right:4px;width:230px;}
+.floatRight{float:right;margin-left:4px;}
+ul{list-style:none; list-style-image:none;}
+ul li a{font-size:14px;}
+ul li a:hover{color:#993333;}
+ul.ulSmall{font-family:monospace;font-size:12px;text-align:right;padding-right:20px;}
+ul.bio{font-size:14px;}
+ul.bio strong{font-family:monospace;font-family:monospace;font-size:14px;font-weight:normal;}
+ul#networks{line-height:16px;}
+.hr, hr {background:transparent url(images/hr2.png) repeat-x scroll center top;border:0 none;height:13px;margin-left:17px;text-align:center;width:235px;} 
+.hr hr{display: none !important; }
+img.preview{border:4px solid #e0e0e0;}
+img.preview:hover{border:4px solid #eeeeee;}
+div#cloud1{position:absolute;background-image:url(images/cloudsBLUR.png);background-repeat:repeat-x;background-position:top left;z-index:-1;left:-1%;}
+div#cloud2{position:absolute;background-image:url(images/clouds.png);background-repeat:repeat-x;background-position:top left;z-index:-2;left:-1%;}
+div#cloud3{position:absolute;background-image:url(images/cloudsSM.png);background-repeat:repeat-x;background-position:top left;z-index:-1;left:-1%;}
+div#main{margin:0 auto;padding:0;width:1005px;}
+div#main div#logo{text-align:center;width:990px;z-index:9999;}
+div#logo a img{border:0px solid;z-index:9999;}
+div#body{display:none;}
+div#loading{width:16px;padding-top:160px;margin:0 auto;}
+div#main div#leftcol{background:transparent url(images/col2.png) no-repeat scroll left top;float:left;height:400px;padding-right:1px;text-align:left;width:184px;padding-top:21px;}
+div#leftcol ul{float:left;height:400px;}
+div#leftcol ul li{color:#444;list-style-image:url(images/bullet.png);margin-bottom:24px;}
+	div.leftColumn{float:left;margin-right:4px;width:350px;}
+div#main div#middlecol{background:transparent url(images/topBody.png) no-repeat top center;float:left;height:auto;width:630px;margin-top:1px;}
+div#main div#middleBottom{background:transparent url(images/bottomBody.png) no-repeat;float:left;width:630px;height:9px;}
+div#main div#rightcol{background:transparent url(images/col2.png) no-repeat scroll right top;float:left;height:400px;padding-left:2px;text-align:left;width:184px;padding-top:21px;}
+div#rightcol ul li{color:#444;list-style-image:url(images/bullet.png);margin-bottom:24px;}
+div#footer{background:transparent url(images/rollinghills1.png) repeat-x scroll 60% 0;bottom:0;color:#333333;font-size:14px;left:-1px;position:absolute;text-align:center;width:100%;height:20px;padding-top:58px;z-index:-1;}
+	div#rollingHills{background:transparent url(images/rollinghills2.png) repeat-x scroll 0 0;bottom:0;color:#333333;font-size:14px;height:238px;left:-1px;position:absolute;text-align:center;width:100%;z-index:-2;}
+#navigation, #content, .section{padding:0;margin:0;list-style:none;}
+#content{background:url(images/mainBg.png);float:left;height:400px;margin-left:0;margin-top:9px;overflow:hidden;position:relative;width:630px;}
+#content h2{font-family:monospace;color:#993333;margin-top:10px;}
+#content a{color:#777777;font-weight:bolder;text-decoration:none;}
+#content a:hover{color:#a2d6f2;font-weight:bolder;text-decoration:none;text-shadow: 0 0 0.2em #eeeeee, 0 0 0.2em #eeeeee, 0 0 0.2em #eeeeee;}
+div.thumbs{width:560px;}
+div.thumbs img.pre{border:4px solid #e0e0e0;margin:0 8px 8px 0;}
+div.thumbs img.pre:hover{border:4px solid #eeeeee;}
+#navigation .sup li{margin: 3px 0 !important;margin:-4px 0;font-size:10px;}
+#navigation a.scrolling{color:#933;}
+.section{width:3275px;position:relative;}
+.section .sub{position:relative;float:left;padding:9px 21px 30px 45px;width:567px;right:43px;height:352px;}
+.section .sub p{width:550px;margin:16px 0;font-size:85%;line-height:1.4em;}
+.section .next, .section .prev{font-size:30px;position:absolute;bottom:1px;letter-spacing:-2px;}
+.section .next{right:30px;}
+.section .prev{left:30px;}
+.message{background:#EEE;border:1px solid #999;color:#333;font-size:12px;padding:1px;position:absolute;left:11px;}
+#first{top:484px !important;top:498px;}
+#second{top:503px !important;top:517px;}
+iframe {display:none;!important}
+</style>
+<link type="text/css" rel="stylesheet" href="floatbox/floatbox.css" />
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js'></script>
+<script type="text/javascript" src="floatbox/floatbox.js"></script>
+<script type="text/javascript" src='js/js.js'></script>
+<script type='text/javascript' src='js/jquery.scrollTo.js'></script>
+<script type='text/javascript' src='js/jquery.localscroll.js'></script>
+<script type='text/javascript' src='js/init.js'></script>
+<script type='text/javascript'>
+	$(window).load(function(){
+		loadClouds();
+		$('#loading').hide();
+		$('#body').fadeIn(3000);
+		});
+</script>
+</head>
+<body>
+<div id="cloud1"></div>
+<div id="cloud2"></div>
+<div id="cloud3"></div>
+<div id="main">
+<div id="logo"><a href="#home"><img alt="The John Smith" src="images/logo.png" /></a> </div>
+<div id="loading"><img src="images/loader.gif" alt="loading..." /></div>
+<div id="body">
+<div id="leftcol">
+  <ul>
+    <li><a href="#web">Web</a></li>
+    <li><a href="#illustrations">Illustrations</a></li>
+    <li><a href="#photography">Photography</a></li>
+    <li><a href="#otherstuff">Other Stuff</a></li>
+  </ul>
+</div>
+<div id="middlecol">
+  <div id="content">
+    
+    <div class="section">
+      <ul>
+        <li class="sub" id="home">
+          <h2>Well Hi There.</h2>
+          <div class="floatLeft">
+          <img src="images/me.png" width="200" height="267" alt="John Smith in all his GLORY!" /><br /><a href="mailto:john@thejohnsmith.com">john@thejohnsmith.com</a>
+</div>
+          Welcome to The John Smith Dot Com. I am an <strong>Internet enthusiast</strong>, <strong>artist</strong>, <strong>designer</strong> and <strong>coder</strong>; this is my digital portfolio.
+          <hr />
+          <ul class="bio">
+              <li><strong>Lives : </strong>St. Paul, Minnesota</li>
+              <li><strong>Loves : </strong>The Internet</li>
+              <li><strong>Likes : </strong>Puppies &amp; muscle cars</li>
+              <li><strong>Learns: </strong>Daily</li>
+          </ul>
+<hr />
+<ul id="networks"><li><a href="http://www.facebook.com/rastanot"><img src="images/facebook.png" alt="ICON: Facebook" /> John Smith Facebook</a></li>
+<li><a href="http://twitter.com/the_johnsmith"><img src="images/twitter.png" alt="ICON: Twitter" /> John Smith Twitter</a></li>
+<li><a href="http://www.flickr.com/photos/rastanot/"><img src="images/flickr.png" alt="ICON: Flickr" /> John Smith Flickr</a></li>
+<li><a href="http://www.google.com/profiles/strawcat"><img src="images/google.png" alt="ICON: Flickr" /> John Smith Google Profile</a></li>
+</ul>
+          <a href="#about" class="next">&gt;&gt;</a>
+        </li></ul>
+        </div>
+        
+     <div class="section">
+      <ul>
+        <li class="sub" id="about">
+          <h2>About John Smith</h2>
+          <div class="leftColumn">
+          <strong>There are two conditions in the universe; accident and design.</strong><br /><br />
+          I have a <strong>bachelors degree</strong> in Computer Information Systems and an <strong>Associate degree</strong> in Graphic Design (yaddy yaddy ya...). I have been working in graphic design, Web design/development, marketing and teaching for over <strong>ten years</strong>.
+<br /><br />
+I spend my free time taking photos, painting, watching movies and wrenching on <a href="http://ellietwo.blogspot.com/" target="_blank">muscle cars</a>.</div>
+
+<ul class="ulSmall">
+<li><strong>Favorite Activities:</strong></li>
+    <li style="color:red">Computers</li>
+    <li style="color:#f1a61b">Gaming</li>
+    <li style="color:#f6922f">Painting/Drawing</li>
+    
+    <li style="color:red">Designing</li>
+    <li style="color:#f1a61b">Poetry</li>
+    <li style="color:#f6922f">Music</li>
+    
+    <li style="color:red">Performing</li>
+    <li style="color:#f1a61b">Recording</li>
+    <li style="color:#f6922f">Picnics</li>
+    
+    <li style="color:red">Snowboarding</li>
+    <li style="color:#f1a61b">Long Boarding</li>
+    <li style="color:#f6922f">Cooking</li>
+    
+    <li style="color:red">Reading</li>
+    <li style="color:#f1a61b">Tinkering</li>
+    <li style="color:#f6922f">Photography</li>
+    
+    <li style="color:red">Mountain Biking</li>
+    <li style="color:#f1a61b">Rock Climbing</li>
+    <li style="color:#f6922f">Hiking</li>
+    
+    <li style="color:red">Camping</li>
+    <li style="color:#f1a61b">Dog Training</li>
+    </ul>
+    
+          <a href="#home" class="prev">&lt;&lt;</a>
+          <a href="#contact" class="next">&gt;&gt;</a>
+        </li></ul>
+      </div>
+      
+       <div class="section">
+      <ul>
+        <li class="sub" id="contact">
+          <h2>Contact John Smith</h2>
+          <div style="float:left;width:260px;margin-right:14px;">
+I live in Desnoyer Park, St. Paul!
+<iframe width="250" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=desnoyer+park+st.paul+mn&amp;sll=37.0625,-95.677068&amp;sspn=54.401733,95.976562&amp;ie=UTF8&amp;hq=Desnoyer+Park&amp;hnear=Desnoyer+Park,+Saint+Paul,+MN+55104&amp;ll=44.956583,-93.200867&amp;spn=0.01895,0.038418&amp;output=embed"></iframe><br />
+</div>
+Email me: <a href="mailto:john@thejohnsmith.com">john@thejohnsmith.com</a> Pick up a copy of my resume'....<a href="http://www.thejohnsmith.com/private/JohnSmith_Resume_oct09.pdf">here</a>          
+			<a href="#about" class="prev">&lt;&lt;</a>
+          	<a href="#home" class="next">&lt;&lt;</a></li>
+      </ul>
+      </div>
+      
+    <div class="section"><ul><li class="sub" id="blank"></li></ul></div>
+    <div class="section"><ul><li class="sub" id="blank"></li></ul></div>
+    
+    <div class="section">
+      <ul>
+        <li class="sub" id="web">
+          <h2>Fusion Room</h2><a href="http://www.fusion-room.com" class="floatbox" rev="width:950 height:660 scrolling:no"><img class="preview" src="images/fusionRoom.png" alt="IMAGE:Fusion Room" width="550" height="295" /></a>
+          <a href="#web1" class="next">&gt;&gt;</a></li>
+        <li class="sub" id="web1">
+          <h2>Google</h2><a href="http://www.thejohnsmith.com/google/" class="floatbox" rev="width:950 height:660 scrolling:no"><img class="preview" src="images/googleTour.png" alt="IMAGE:Google Tour" width="550" height="295" /></a>
+
+          <a href="#web" class="prev">&lt;&lt;</a> <a href="#web2" class="next">&gt;&gt;</a> </li>
+        <li class="sub" id="web2">
+          <h2>CATS Software Inc</h2><a href="http://www.catsone.com" class="floatbox" rev="width:950 height:660 scrolling:yes">
+<img class="preview" src="images/cats.png" alt="IMAGE:CATS Web site" width="550" height="295" /></a>
+          <a href="#web1" class="prev">&lt;&lt;</a> <a href="#web3" class="next">&gt;&gt;</a> </li>
+        <li class="sub" id="web3">
+                  <h2>Red Bull</h2><a href="http://redbull.thejohnsmith.com/" class="floatbox" rev="width:920 height:600 scrolling:no">
+<img class="preview" src="images/redbull.png" alt="IMAGE:Red Bull Web site" width="550" height="295" /></a>
+
+          <a href="#web2" class="prev">&lt;&lt;</a> <a href="#web4" class="next">&gt;&gt;</a> </li>
+        <li class="sub" id="web4">
+          <h2>Resfly</h2>
+<img class="preview" src="images/resfly.png" alt="IMAGE:resFly Web site" width="550" height="295" />
+          <a href="#web3" class="prev">&lt;&lt;</a>
+          <a href="#web" class="next">&lt;&lt;</a>
+          </li>
+      </ul>
+    </div>
+    
+    <div class="section">
+      <ul>
+        <li class="sub" id="illustrations" >
+          <h2>Lead Sled</h2>
+          <a href="images/leadSled.jpg" class="floatbox" rev="group:vectors"><img class="preview" src="images/leadSledPre.png" alt="IMAGE:Lead Sled Vector" width="550" height="295" /></a>
+          <a href="#illustration2" class="next">&gt;&gt;</a> </li>
+      </ul>
+    </div>
+    
+    <div class="section">
+    	<ul>
+          <li class="sub" id="illustration2">
+          <h2>Chevelle SS</h2>
+    <a href="images/ss.jpg" class="floatbox" rev="group:vectors"><img class="preview" src="images/chevellePre.png" alt="IMAGE:Chevell SS Vector" width="550" height="295" /></a>
+    		<a href="#illustrations" class="prev">&lt;&lt;</a>
+         	<a href="#illustrations3" class="next">&gt;&gt;</a>
+    </li></ul></div>
+    <div class="section"><ul><li class="sub" id="illustrations3">
+              <h2>Self Portrait</h2>
+    <a href="images/selfVector.jpg" class="floatbox" rev="group:vectors"><img class="preview" src="images/selfvectorPre.png" alt="IMAGE:Self Portrait Vector" width="550" height="295" /></a>
+    		<a href="#illustrations" class="prev">&lt;&lt;</a>
+         	<a href="#illustrations" class="next">&lt;&lt;</a>
+            </li>
+            </ul>
+            </div>
+    <div class="section"><ul><li class="sub" id="blank"></li></ul></div>
+    <div class="section"><ul><li class="sub" id="blank"></li></ul></div>
+
+    <div class="section">
+      <ul>
+        <li class="sub" id="photography">
+		<h2>Minneapolis Skyline HRD</h2>
+          <a href="images/minneapolisSkylineHDR.jpg" class="floatbox" rev="group:photos"><img class="preview" src="images/minneapolisSkylineHDRPre.jpg" alt="IMAGE:Minneapolis Skyline HDR" width="550" height="295" /></a>
+          <a href="#photography2" class="next">&gt;&gt;</a> </li>
+      </ul>
+    </div>
+    
+    <div class="section"><ul><li class="sub" id="photography2">
+    <h2>Minneapolis Trainyard</h2>
+	<a href="images/minneapolisTrainyard.jpg" class="floatbox" rev="group:photos"><img class="preview" src="images/minneapolisTrainyardPre.jpg" alt="IMAGE:Minneapolis Trainyard" width="550" height="295" /></a>
+    <a href="#photography" class="prev">&lt;&lt;</a>
+    <a href="#photography3" class="next">&gt;&gt;</a></li></ul></div>
+    <div class="section"><ul><li class="sub" id="photography3">
+    <h2>Red Green &amp; Orange</h2>
+	<a href="images/redGreenOrange.jpg" class="floatbox" rev="group:photos"><img class="preview" src="images/redGreenOrangePre.jpg" alt="IMAGE:Red Green and Orange" width="550" height="295" /></a>
+    <a href="#photography2" class="prev">&lt;&lt;</a>
+    <a href="#photography4" class="next">&gt;&gt;</a></li></ul></div>
+    <div class="section"><ul><li class="sub" id="photography4">
+    <h2>Three Wheel Motion</h2>
+	<a href="images/threeWheel64.jpg" class="floatbox" rev="group:photos"><img class="preview" src="images/threeWheel64Pre.jpg" alt="IMAGE:1964 Three Wheel" width="550" height="295" /></a>
+    <a href="#photography3" class="prev">&lt;&lt;</a>
+    <a href="#photography5" class="next">&gt;&gt;</a></li></ul></div>
+    <div class="section"><ul><li class="sub" id="photography5">
+    <h2>St. Martin</h2>
+    <a href="images/stMartin.jpg" class="floatbox" rev="group:photos"><img class="preview" src="images/stMartinPre.jpg" alt="IMAGE:St. Martin" width="550" height="295" /></a>
+    <a href="#photography4" class="prev">&lt;&lt;</a>
+    <a href="#photography" class="next">&lt;&lt;</a></li></ul></div>
+    
+    <div class="section">
+      <ul>
+        <li class="sub" id="otherstuff">
+          <h2>More Web sites</h2>
+          <div class="thumbs">
+    <a href="http://funnysocks.freehostia.com/" class="floatbox" rev="width:950 height:660 scrolling:yes"><img alt="" class="pre" src="images/flssm.jpg" /></a><a href="http://www.whathappenedtocapitalism.com/" class="floatbox" rev="width:950 height:660 scrolling:yes"><img alt="" class="pre" src="images/whtcsm.jpg" /></a><a href="http://zhacssandbox.net/" class="floatbox" rev="width:950 height:660 scrolling:yes"><img alt="" class="pre" src="images/iramsm.jpg" /></a><a href="http://rastanot.freehostia.com/piratedev/" class="floatbox" rev="width:950 height:660 scrolling:yes"><img alt="" class="pre" src="images/pirateDevsm.jpg" /></a><a href="http://tashamarohn.com/" class="floatbox" rev="width:950 height:660 scrolling:yes"><img alt="" class="pre" src="images/TMwebsitesm.jpg" /></a>
+          </div>
+          <a href="#flyers" class="next">&gt;&gt;</a>
+          </li></ul></div>
+    
+    <div class="section"><ul><li class="sub" id="flyers">
+    <h2>Flyers</h2>
+    <div class="thumbs">
+        <a href="images/acoustic.jpg" class="floatbox" rev="group:Flyers"><img alt="" class="pre" src="images/acousticsm.jpg" /></a><a href="images/bored.jpg" class="floatbox" rev="group:Flyers"><img alt="" class="pre" src="images/boredsm.jpg" /></a><a href="images/danksgiving.jpg" class="floatbox" rev="group:Flyers"><img alt="" class="pre" src="images/danksgivingsm.jpg" /></a><a href="images/fineline.jpg" class="floatbox" rev="group:Flyers"><img alt="" class="pre" src="images/finelinesm.jpg" /></a>
+    </div>
+    <a href="#otherstuff" class="prev">&lt;&lt;</a>
+    <a href="#sketches" class="next">&gt;&gt;</a>
+    </li></ul></div>
+    <div class="section"><ul><li class="sub" id="sketches">
+    <h2>Sketches</h2>
+        <div class="thumbs">
+        <a href="images/bri1.jpg" class="floatbox" rev="group:Sketches"><img alt="" class="pre" src="images/bri.jpg" /></a><a href="images/emily1.jpg" class="floatbox" rev="group:Sketches"><img alt="" class="pre" src="images/emily.jpg" /></a><a href="images/emSketch1.jpg" class="floatbox" rev="group:Sketches"><img alt="" class="pre" src="images/emSketch.jpg" /></a><a href="images/jamie1.jpg" class="floatbox" rev="group:Sketches"><img alt="" class="pre" src="images/jamie.jpg" /></a><a href="images/selfVector2.jpg" class="floatbox" rev="group:Sketches"><img alt="" class="pre" src="images/meSketch.jpg" /></a><a href="images/80sGun1.jpg" class="floatbox" rev="group:Sketches"><img alt="" class="pre" src="images/80sGun.jpg" /></a><a href="images/self1.jpg" class="floatbox" rev="group:Sketches"><img alt="" class="pre" src="images/self.jpg" /></a>
+        </div>
+    <a href="#otherstuff" class="prev">&lt;&lt;</a>
+    <a href="#paintings" class="next">&gt;&gt;</a>
+    </li></ul></div>
+    <div class="section"><ul><li class="sub" id="paintings">
+    <h2>Paintings</h2>
+    <div class="thumbs">
+    <a href="images/paint1.jpg" class="floatbox" rev="group:Paintings"><img alt="" class="pre" src="images/paint1sm.jpg" /></a><a href="images/paint2.jpg" class="floatbox" rev="group:Paintings"><img alt="" class="pre" src="images/paint2sm.jpg" /></a><a href="images/paint3.jpg" class="floatbox" rev="group:Paintings"><img alt="" class="pre" src="images/paint3sm.jpg" /></a><a href="images/paint4.jpg" class="floatbox" rev="group:Paintings"><img alt="" class="pre" src="images/paint4sm.jpg" /></a>
+    </div>
+    <a href="#sketches" class="prev">&lt;&lt;</a>
+    <a href="#otherstuff" class="next">&lt;&lt;</a>
+    </li></ul></div>
+    <div class="section"><ul><li class="sub" id="silly">
+    <h2>Silly</h2>
+    <a href="#silly" class="prev">&lt;&lt;</a>
+    <a href="#otherstuff" class="next">&lt;&lt</a></li></ul></div>
+    
+  </div>
+<div id="middleBottom"></div>
+</div>
+
+<div id="rightcol">
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+</div>
+</div>
+<div id="footer"> &copy;The John Smith 2010 </div>
+<div id="rollingHills"></div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1760683-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

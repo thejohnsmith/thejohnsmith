@@ -1,0 +1,16 @@
+// Dutch
+{
+"hintClose":   "Sluiten (toets: Esc)",
+"hintPrev":    "Vorige (toets: ←)",
+"hintNext":    "Volgende (toets: →)",
+"hintPlay":    "Afspelen (toets: spatiebalk)",
+"hintPause":   "Pauze (toets: spatiebalk)",
+"hintResize":  "Grootte aanpassen (toets: Tab)",
+"imgCount":    "Afbeelding %1 van %2",
+"nonImgCount": "Pagina %1 van %2",
+"mixedCount":  "(%1 van %2)",
+"infoText":    "Info...",
+"printText":   "Afdrukken...",
+"flashVer":    "Een nieuwere versie van 'Flash Player' nodig om dit onderdeel te bekijken inhoud.",
+"needPlayer":  "'%1' nodig is om deze inhoud."
+}

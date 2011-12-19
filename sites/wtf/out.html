@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>WTF? Bye :(</title>
+<link href='styles/main.css' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC' rel='stylesheet' type='text/css'><!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<style type="text/css">
+
+#me.signin, #me-out {
+	margin: 120px auto;
+	border: 1px solid #CCC;
+	border-radius: 8px;
+	padding: 10px 20px;
+	background: -webkit-linear-gradient(top, #EFEFEF, #DDD);
+	box-shadow: 0 0 2px #CCC;
+	width: 400px;
+}
+#me-out{font-size:1.6em; font-weight:bold;}
+#me.signin h1{
+	background:#efefef;
+}
+#me.signin #me-name {
+	padding: 8px;
+	border-radius: 8px;
+	border: 1px solid #999;
+	box-shadow:inset 0 0 4px #aaa;
+	width: 380px;
+	margin-bottom:20px
+}
+#me.signin #me-name:focus{outline:none; border: 1px solid #4FB3E6;}
+#me.signin button{
+	background-color: rgba(255, 255, 255, .75);
+}
+</style>
+
+</head>
+
+<body>
+<section id="wrapper">
+<header id="giddyup">
+	<h1>WTF?</h1>
+    <small>When you need the answer right the fuck now.</small>
+</header> <!-- / #giddyup -->
+
+<section id="container">
+	<section id="me-out" class="bye">
+    	<p>Thanks for stopping by.</p>
+    </section>
+
+	<section id="me" class="signin">
+    	<header><h1>Sign In</h1></header>
+		<input name="me-name" id="me-name" type="text" placeholder="What's your handle?"/>
+        <footer>
+        	<button>Sign In</button>
+        </footer>
+    </section> <!-- / #me -->
+
+
+</section> <!-- / #container -->
+
+</section> <!-- / #wrapper -->
+
+<script type="text/javascript" src="jquery-1.6.2.js"></script>
+<script type="text/javascript" src="jquery.json-2.2.js"></script>
+<script type="text/javascript" src="jquery.websocket-0.0.1.js"></script>
+<script type="text/javascript" src="messaging.js"></script>
+
+</body>
+</html>
