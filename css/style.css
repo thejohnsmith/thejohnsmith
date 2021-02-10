@@ -127,12 +127,12 @@ p{font-size:1.2em;line-height:30px;margin:0 0 1em;}
 
 /* Thumbs */
 .thumbnails a{border:1px solid #47ADE3;border-radius:12px 12px 12px 12px;-webkit-border-radius:12px 12px 12px 12px;-moz-border-radius:12px 12px 12px 12px;display:inline-block;height:126px;overflow:hidden;}
-#photo.thumbnails a{height:105px;width:100%;}
+#photo.thumbnails a{height:105px;/* width:100%; */}
 .thumbnails a:hover{box-shadow:0 0 5px #FF0066;-moz-box-shadow:0 0 5px #FF0066;-webkit-box-shadow:0 0 5px #FF0066;}
 .thumbnails a img{border-radius:12px 12px 12px 12px;-webkit-border-radius:12px 12px 12px 12px;-moz-border-radius:12px 12px 12px 12px;opacity:.95;}
 .thumbnails a img:hover{opacity:1;}
 .thumbnails a img{height:100%;width:auto;}
-#photo.thumbnails a img{height:100%;width:100%;}
+#photo.thumbnails a img{/* height:100%; *//* width:100%; */}
 
 /* Portfolio Pieces */
 #webPortfolio p{padding:1em 0;}
