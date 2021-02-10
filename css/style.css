@@ -87,7 +87,7 @@ p{font-size:1.2em;line-height:30px;margin:0 0 1em;}
 
 #blueSky{display:none;background:url(../images/sky.png) repeat-x transparent;top:0;height:100%;position:absolute;width:100%;z-index:-2;}
 #sunsetFade{display:none;background:url(../images/bgFade.png) repeat-x transparent;height:1400px;position:absolute;top:0;width:100%;z-index:0;}
-#sun{background:url(../images/sun.png) no-repeat transparent;height:100%;position:fixed;right:0;top:-90px;width:1883px;z-index:0;}
+#sun{background:url(../images/sun.png) no-repeat transparent;height:100%;position:fixed;right:0;top:0;width:1883px;z-index:0;}
 #oneCloud{background:url(../images/cloudsSM.png) repeat-x transparent;position:absolute;height:99px;width:100%;z-index:1;}
 #twoClouds{background:url(../images/clouds.png) repeat-x transparent;position:absolute;height:136px;width:100%;z-index:0;}
 #blurryCloud{background:transparent url(../images/cloudsBLUR.png) 0 0px repeat-x;height:115px;position:absolute;width:100%;z-index:100;}
