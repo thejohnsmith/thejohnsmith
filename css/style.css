@@ -91,7 +91,7 @@ p{font-size:1.2em;line-height:30px;margin:0 0 1em;}
 #oneCloud{background:url(../images/cloudsSM.png) repeat-x transparent;position:absolute;height:99px;width:100%;z-index:1;}
 #twoClouds{background:url(../images/clouds.png) repeat-x transparent;position:absolute;height:136px;width:100%;z-index:0;}
 #blurryCloud{background:transparent url(../images/cloudsBLUR.png) 0 0px repeat-x;height:115px;position:absolute;width:100%;z-index:100;}
-#trees{background:url(../images/trees.png) transparent;position:fixed;bottom:0;height:302px;width:100%;}
+#trees{background:url(../images/rollinghills2.png) transparent;position:fixed;bottom:0;height:302px;width:100%;}
 #grass{background:url(../images/grass.png) 60% 0 transparent;position:fixed;bottom:0;height:85px;width:100%;z-index:4;}
 #stars{display:none;background:url(../images/stars.png) repeat-x transparent;bottom:0;height:100%;position:fixed;width:100%;z-index:-3;}
 
